@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4AB5B6E47FB67EDC2C40A783 /* Pods_AustinWeirdAutos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A6F8208B64F9B191B40CD6 /* Pods_AustinWeirdAutos.framework */; };
+		BA547D3400A628AA53B517D5 /* Pods_AustinWeirdAutosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A351A12189DF97C690D37D /* Pods_AustinWeirdAutosTests.framework */; };
 		BFB233B42350476300827391 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB233B32350476300827391 /* AppDelegate.swift */; };
 		BFB233B62350476300827391 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB233B52350476300827391 /* ViewController.swift */; };
 		BFB233B92350476300827391 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB233B72350476300827391 /* Main.storyboard */; };
@@ -26,6 +28,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		41D1646FAC5B6FA66B774369 /* Pods-AustinWeirdAutos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AustinWeirdAutos.release.xcconfig"; path = "Pods/Target Support Files/Pods-AustinWeirdAutos/Pods-AustinWeirdAutos.release.xcconfig"; sourceTree = "<group>"; };
+		45A6F8208B64F9B191B40CD6 /* Pods_AustinWeirdAutos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AustinWeirdAutos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CA8EAA188FFC6E5FDA4BB96 /* Pods-AustinWeirdAutos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AustinWeirdAutos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AustinWeirdAutos/Pods-AustinWeirdAutos.debug.xcconfig"; sourceTree = "<group>"; };
+		9C4B209AAF5F3EF5FA363F1B /* Pods-AustinWeirdAutosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AustinWeirdAutosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AustinWeirdAutosTests/Pods-AustinWeirdAutosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9F3869325E075849F04B40E0 /* Pods-AustinWeirdAutosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AustinWeirdAutosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AustinWeirdAutosTests/Pods-AustinWeirdAutosTests.release.xcconfig"; sourceTree = "<group>"; };
 		BFB233B02350476300827391 /* AustinWeirdAutos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AustinWeirdAutos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFB233B32350476300827391 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFB233B52350476300827391 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +43,7 @@
 		BFB233C42350476300827391 /* AustinWeirdAutosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AustinWeirdAutosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFB233C82350476300827391 /* AustinWeirdAutosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AustinWeirdAutosTests.swift; sourceTree = "<group>"; };
 		BFB233CA2350476300827391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6A351A12189DF97C690D37D /* Pods_AustinWeirdAutosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AustinWeirdAutosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AB5B6E47FB67EDC2C40A783 /* Pods_AustinWeirdAutos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +59,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA547D3400A628AA53B517D5 /* Pods_AustinWeirdAutosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		784F4C123A2EE7680D089E7F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5CA8EAA188FFC6E5FDA4BB96 /* Pods-AustinWeirdAutos.debug.xcconfig */,
+				41D1646FAC5B6FA66B774369 /* Pods-AustinWeirdAutos.release.xcconfig */,
+				9C4B209AAF5F3EF5FA363F1B /* Pods-AustinWeirdAutosTests.debug.xcconfig */,
+				9F3869325E075849F04B40E0 /* Pods-AustinWeirdAutosTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9985B704E4523C2CAD585278 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45A6F8208B64F9B191B40CD6 /* Pods_AustinWeirdAutos.framework */,
+				E6A351A12189DF97C690D37D /* Pods_AustinWeirdAutosTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BFB233A72350476300827391 = {
 			isa = PBXGroup;
 			children = (
 				BFB233B22350476300827391 /* AustinWeirdAutos */,
 				BFB233C72350476300827391 /* AustinWeirdAutosTests */,
 				BFB233B12350476300827391 /* Products */,
+				784F4C123A2EE7680D089E7F /* Pods */,
+				9985B704E4523C2CAD585278 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,9 +135,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFB233CD2350476300827391 /* Build configuration list for PBXNativeTarget "AustinWeirdAutos" */;
 			buildPhases = (
+				CAEEC402B3F27F492B8BD31F /* [CP] Check Pods Manifest.lock */,
 				BFB233AC2350476300827391 /* Sources */,
 				BFB233AD2350476300827391 /* Frameworks */,
 				BFB233AE2350476300827391 /* Resources */,
+				B58F1DA18C5E7C3C760907CE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -120,6 +154,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFB233D02350476300827391 /* Build configuration list for PBXNativeTarget "AustinWeirdAutosTests" */;
 			buildPhases = (
+				41F24221B7C82FF9B6FB9202 /* [CP] Check Pods Manifest.lock */,
 				BFB233C02350476300827391 /* Sources */,
 				BFB233C12350476300827391 /* Frameworks */,
 				BFB233C22350476300827391 /* Resources */,
@@ -193,6 +228,89 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		41F24221B7C82FF9B6FB9202 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AustinWeirdAutosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B58F1DA18C5E7C3C760907CE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AustinWeirdAutos/Pods-AustinWeirdAutos-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AustinWeirdAutos/Pods-AustinWeirdAutos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAEEC402B3F27F492B8BD31F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AustinWeirdAutos-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BFB233AC2350476300827391 /* Sources */ = {
@@ -351,6 +469,7 @@
 		};
 		BFB233CE2350476300827391 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CA8EAA188FFC6E5FDA4BB96 /* Pods-AustinWeirdAutos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -365,6 +484,7 @@
 		};
 		BFB233CF2350476300827391 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41D1646FAC5B6FA66B774369 /* Pods-AustinWeirdAutos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -379,6 +499,7 @@
 		};
 		BFB233D12350476300827391 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C4B209AAF5F3EF5FA363F1B /* Pods-AustinWeirdAutosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -395,6 +516,7 @@
 		};
 		BFB233D22350476300827391 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F3869325E075849F04B40E0 /* Pods-AustinWeirdAutosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
