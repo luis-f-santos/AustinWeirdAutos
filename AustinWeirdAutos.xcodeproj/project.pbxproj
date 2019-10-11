@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BFB233B42350476300827391 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB233B32350476300827391 /* AppDelegate.swift */; };
+		BFB233B62350476300827391 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB233B52350476300827391 /* ViewController.swift */; };
+		BFB233B92350476300827391 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB233B72350476300827391 /* Main.storyboard */; };
+		BFB233BB2350476300827391 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFB233BA2350476300827391 /* Assets.xcassets */; };
+		BFB233BE2350476300827391 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB233BC2350476300827391 /* LaunchScreen.storyboard */; };
+		BFB233C92350476300827391 /* AustinWeirdAutosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB233C82350476300827391 /* AustinWeirdAutosTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BFB233C52350476300827391 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFB233A82350476300827391 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BFB233AF2350476300827391;
+			remoteInfo = AustinWeirdAutos;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BFB233B02350476300827391 /* AustinWeirdAutos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AustinWeirdAutos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFB233B32350476300827391 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BFB233B52350476300827391 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BFB233B82350476300827391 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BFB233BA2350476300827391 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BFB233BD2350476300827391 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BFB233BF2350476300827391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFB233C42350476300827391 /* AustinWeirdAutosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AustinWeirdAutosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFB233C82350476300827391 /* AustinWeirdAutosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AustinWeirdAutosTests.swift; sourceTree = "<group>"; };
+		BFB233CA2350476300827391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BFB233AD2350476300827391 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFB233C12350476300827391 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BFB233A72350476300827391 = {
+			isa = PBXGroup;
+			children = (
+				BFB233B22350476300827391 /* AustinWeirdAutos */,
+				BFB233C72350476300827391 /* AustinWeirdAutosTests */,
+				BFB233B12350476300827391 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BFB233B12350476300827391 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BFB233B02350476300827391 /* AustinWeirdAutos.app */,
+				BFB233C42350476300827391 /* AustinWeirdAutosTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BFB233B22350476300827391 /* AustinWeirdAutos */ = {
+			isa = PBXGroup;
+			children = (
+				BFB233B32350476300827391 /* AppDelegate.swift */,
+				BFB233B52350476300827391 /* ViewController.swift */,
+				BFB233B72350476300827391 /* Main.storyboard */,
+				BFB233BA2350476300827391 /* Assets.xcassets */,
+				BFB233BC2350476300827391 /* LaunchScreen.storyboard */,
+				BFB233BF2350476300827391 /* Info.plist */,
+			);
+			path = AustinWeirdAutos;
+			sourceTree = "<group>";
+		};
+		BFB233C72350476300827391 /* AustinWeirdAutosTests */ = {
+			isa = PBXGroup;
+			children = (
+				BFB233C82350476300827391 /* AustinWeirdAutosTests.swift */,
+				BFB233CA2350476300827391 /* Info.plist */,
+			);
+			path = AustinWeirdAutosTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BFB233AF2350476300827391 /* AustinWeirdAutos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFB233CD2350476300827391 /* Build configuration list for PBXNativeTarget "AustinWeirdAutos" */;
+			buildPhases = (
+				BFB233AC2350476300827391 /* Sources */,
+				BFB233AD2350476300827391 /* Frameworks */,
+				BFB233AE2350476300827391 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AustinWeirdAutos;
+			productName = AustinWeirdAutos;
+			productReference = BFB233B02350476300827391 /* AustinWeirdAutos.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BFB233C32350476300827391 /* AustinWeirdAutosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFB233D02350476300827391 /* Build configuration list for PBXNativeTarget "AustinWeirdAutosTests" */;
+			buildPhases = (
+				BFB233C02350476300827391 /* Sources */,
+				BFB233C12350476300827391 /* Frameworks */,
+				BFB233C22350476300827391 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BFB233C62350476300827391 /* PBXTargetDependency */,
+			);
+			name = AustinWeirdAutosTests;
+			productName = AustinWeirdAutosTests;
+			productReference = BFB233C42350476300827391 /* AustinWeirdAutosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFB233A82350476300827391 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Luis Santos";
+				TargetAttributes = {
+					BFB233AF2350476300827391 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					BFB233C32350476300827391 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BFB233AF2350476300827391;
+					};
+				};
+			};
+			buildConfigurationList = BFB233AB2350476300827391 /* Build configuration list for PBXProject "AustinWeirdAutos" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BFB233A72350476300827391;
+			productRefGroup = BFB233B12350476300827391 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BFB233AF2350476300827391 /* AustinWeirdAutos */,
+				BFB233C32350476300827391 /* AustinWeirdAutosTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BFB233AE2350476300827391 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFB233BE2350476300827391 /* LaunchScreen.storyboard in Resources */,
+				BFB233BB2350476300827391 /* Assets.xcassets in Resources */,
+				BFB233B92350476300827391 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFB233C22350476300827391 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BFB233AC2350476300827391 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFB233B62350476300827391 /* ViewController.swift in Sources */,
+				BFB233B42350476300827391 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFB233C02350476300827391 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFB233C92350476300827391 /* AustinWeirdAutosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BFB233C62350476300827391 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BFB233AF2350476300827391 /* AustinWeirdAutos */;
+			targetProxy = BFB233C52350476300827391 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BFB233B72350476300827391 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFB233B82350476300827391 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BFB233BC2350476300827391 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFB233BD2350476300827391 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BFB233CB2350476300827391 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BFB233CC2350476300827391 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BFB233CE2350476300827391 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AustinWeirdAutos/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lfsantos.AustinWeirdAutos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BFB233CF2350476300827391 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AustinWeirdAutos/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lfsantos.AustinWeirdAutos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BFB233D12350476300827391 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AustinWeirdAutosTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lfsantos.AustinWeirdAutosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AustinWeirdAutos.app/AustinWeirdAutos";
+			};
+			name = Debug;
+		};
+		BFB233D22350476300827391 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AustinWeirdAutosTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lfsantos.AustinWeirdAutosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AustinWeirdAutos.app/AustinWeirdAutos";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BFB233AB2350476300827391 /* Build configuration list for PBXProject "AustinWeirdAutos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFB233CB2350476300827391 /* Debug */,
+				BFB233CC2350476300827391 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFB233CD2350476300827391 /* Build configuration list for PBXNativeTarget "AustinWeirdAutos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFB233CE2350476300827391 /* Debug */,
+				BFB233CF2350476300827391 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFB233D02350476300827391 /* Build configuration list for PBXNativeTarget "AustinWeirdAutosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFB233D12350476300827391 /* Debug */,
+				BFB233D22350476300827391 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFB233A82350476300827391 /* Project object */;
+}
