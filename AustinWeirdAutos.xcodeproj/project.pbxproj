@@ -15,6 +15,7 @@
 		BFB233BB2350476300827391 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFB233BA2350476300827391 /* Assets.xcassets */; };
 		BFB233BE2350476300827391 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB233BC2350476300827391 /* LaunchScreen.storyboard */; };
 		BFB233C92350476300827391 /* AustinWeirdAutosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB233C82350476300827391 /* AustinWeirdAutosTests.swift */; };
+		BFB233D423504FB800827391 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFB233D323504FB400827391 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		BFB233C42350476300827391 /* AustinWeirdAutosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AustinWeirdAutosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFB233C82350476300827391 /* AustinWeirdAutosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AustinWeirdAutosTests.swift; sourceTree = "<group>"; };
 		BFB233CA2350476300827391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFB233D323504FB400827391 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6A351A12189DF97C690D37D /* Pods_AustinWeirdAutosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AustinWeirdAutosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 				BFB233BA2350476300827391 /* Assets.xcassets */,
 				BFB233BC2350476300827391 /* LaunchScreen.storyboard */,
 				BFB233BF2350476300827391 /* Info.plist */,
+				BFB233D323504FB400827391 /* GoogleService-Info.plist */,
 			);
 			path = AustinWeirdAutos;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFB233BE2350476300827391 /* LaunchScreen.storyboard in Resources */,
+				BFB233D423504FB800827391 /* GoogleService-Info.plist in Resources */,
 				BFB233BB2350476300827391 /* Assets.xcassets in Resources */,
 				BFB233B92350476300827391 /* Main.storyboard in Resources */,
 			);
@@ -235,15 +239,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-AustinWeirdAutosTests-checkManifestLockResult.txt",
 			);
@@ -257,8 +257,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AustinWeirdAutos/Pods-AustinWeirdAutos-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
@@ -271,8 +269,6 @@
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
@@ -293,15 +289,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-AustinWeirdAutos-checkManifestLockResult.txt",
 			);

@@ -227,25 +227,25 @@ static NSMutableArray *g_pendingRequestors;
                                                  }];
 #if !TARGET_OS_TV
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_2
-    if (@available(iOS 11.2, *)) {
-      BOOL isSubscription = product.subscriptionPeriod != nil;
-      if (isSubscription) {
-        // subs inapp
-        SKProductSubscriptionPeriod *period = product.subscriptionPeriod;
-        NSString *unit = nil;
-        switch (period.unit) {
-          case SKProductPeriodUnitDay: unit = @"D"; break;
-          case SKProductPeriodUnitWeek: unit = @"W"; break;
-          case SKProductPeriodUnitMonth: unit = @"M"; break;
-          case SKProductPeriodUnitYear: unit = @"Y"; break;
-        }
-        NSString *p = [NSString stringWithFormat:@"P%lu%@", (unsigned long)period.numberOfUnits, unit];
-        [eventParameters setObject:p forKey:FBSDKAppEventParameterNameSubscriptionPeriod];
-        [eventParameters setObject:@"subs" forKey:FBSDKAppEventParameterNameInAppPurchaseType];
-      } else {
-        [eventParameters setObject:@"inapp" forKey:FBSDKAppEventParameterNameInAppPurchaseType];
-      }
-    }
+//    if (@available(iOS 11.2, *)) {
+//      BOOL isSubscription = product.subscriptionPeriod != nil;
+//      if (isSubscription) {
+//        // subs inapp
+//        SKProductSubscriptionPeriod *period = product.subscriptionPeriod;
+//        NSString *unit = nil;
+//        switch (period.unit) {
+//          case SKProductPeriodUnitDay: unit = @"D"; break;
+//          case SKProductPeriodUnitWeek: unit = @"W"; break;
+//          case SKProductPeriodUnitMonth: unit = @"M"; break;
+//          case SKProductPeriodUnitYear: unit = @"Y"; break;
+//        }
+//        NSString *p = [NSString stringWithFormat:@"P%lu%@", (unsigned long)period.numberOfUnits, unit];
+//        [eventParameters setObject:p forKey:FBSDKAppEventParameterNameSubscriptionPeriod];
+//        [eventParameters setObject:@"subs" forKey:FBSDKAppEventParameterNameInAppPurchaseType];
+//      } else {
+//        [eventParameters setObject:@"inapp" forKey:FBSDKAppEventParameterNameInAppPurchaseType];
+//      }
+//    }
 #endif
 #endif
     if (transactionID) {
