@@ -10,12 +10,13 @@
 		4AB5B6E47FB67EDC2C40A783 /* Pods_AustinWeirdAutos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A6F8208B64F9B191B40CD6 /* Pods_AustinWeirdAutos.framework */; };
 		BA547D3400A628AA53B517D5 /* Pods_AustinWeirdAutosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A351A12189DF97C690D37D /* Pods_AustinWeirdAutosTests.framework */; };
 		BFB233B42350476300827391 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB233B32350476300827391 /* AppDelegate.swift */; };
-		BFB233B62350476300827391 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB233B52350476300827391 /* ViewController.swift */; };
+		BFB233B62350476300827391 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB233B52350476300827391 /* SignInViewController.swift */; };
 		BFB233B92350476300827391 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB233B72350476300827391 /* Main.storyboard */; };
 		BFB233BB2350476300827391 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFB233BA2350476300827391 /* Assets.xcassets */; };
 		BFB233BE2350476300827391 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB233BC2350476300827391 /* LaunchScreen.storyboard */; };
 		BFB233C92350476300827391 /* AustinWeirdAutosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB233C82350476300827391 /* AustinWeirdAutosTests.swift */; };
 		BFB233D423504FB800827391 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFB233D323504FB400827391 /* GoogleService-Info.plist */; };
+		BFE7CDDC235FC4FC00E384E1 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7CDDB235FC4FC00E384E1 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 		9F3869325E075849F04B40E0 /* Pods-AustinWeirdAutosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AustinWeirdAutosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AustinWeirdAutosTests/Pods-AustinWeirdAutosTests.release.xcconfig"; sourceTree = "<group>"; };
 		BFB233B02350476300827391 /* AustinWeirdAutos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AustinWeirdAutos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFB233B32350476300827391 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BFB233B52350476300827391 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BFB233B52350476300827391 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		BFB233B82350476300827391 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BFB233BA2350476300827391 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFB233BD2350476300827391 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 		BFB233C82350476300827391 /* AustinWeirdAutosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AustinWeirdAutosTests.swift; sourceTree = "<group>"; };
 		BFB233CA2350476300827391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFB233D323504FB400827391 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BFE7CDDB235FC4FC00E384E1 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		E6A351A12189DF97C690D37D /* Pods_AustinWeirdAutosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AustinWeirdAutosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -112,7 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				BFB233B32350476300827391 /* AppDelegate.swift */,
-				BFB233B52350476300827391 /* ViewController.swift */,
+				BFE7CDDA235FC4D400E384E1 /* Services */,
+				BFE7CDD8235FC4C100E384E1 /* Model */,
+				BFE7CDD9235FC4CE00E384E1 /* View */,
+				BFE7CDD7235FC4AD00E384E1 /* Controller */,
 				BFB233B72350476300827391 /* Main.storyboard */,
 				BFB233BA2350476300827391 /* Assets.xcassets */,
 				BFB233BC2350476300827391 /* LaunchScreen.storyboard */,
@@ -129,6 +134,36 @@
 				BFB233CA2350476300827391 /* Info.plist */,
 			);
 			path = AustinWeirdAutosTests;
+			sourceTree = "<group>";
+		};
+		BFE7CDD7235FC4AD00E384E1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BFB233B52350476300827391 /* SignInViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BFE7CDD8235FC4C100E384E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BFE7CDD9235FC4CE00E384E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BFE7CDDA235FC4D400E384E1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BFE7CDDB235FC4FC00E384E1 /* DataService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,7 +344,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFB233B62350476300827391 /* ViewController.swift in Sources */,
+				BFE7CDDC235FC4FC00E384E1 /* DataService.swift in Sources */,
+				BFB233B62350476300827391 /* SignInViewController.swift in Sources */,
 				BFB233B42350476300827391 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
