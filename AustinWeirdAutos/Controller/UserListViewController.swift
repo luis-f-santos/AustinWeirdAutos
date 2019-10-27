@@ -47,13 +47,6 @@ class UserListViewController: UIViewController, UITableViewDelegate, UITableView
         self.users.append(post3)
 
         
-        
-//        if let postDict = snap.value as? Dictionary<String, AnyObject> {
-//
-//            let key = snap.key
-//            let post = Post(postKey: key, postData: postDict)
-//            self.posts.append(post)
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
