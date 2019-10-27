@@ -98,7 +98,7 @@ class SignInViewController: UIViewController {
         
         passwordTextField.text = ""
         
-        //performSegue(withIdentifier: "toFeedVC", sender: nil)
+        performSegue(withIdentifier: "toUserList", sender: nil)
         
     }
         
