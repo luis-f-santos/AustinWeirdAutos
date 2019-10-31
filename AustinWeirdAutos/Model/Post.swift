@@ -18,6 +18,7 @@ class Post {
     private var _isPublic: Bool!
     private var _imageURLs: [String]!
     private var _postID: String!
+    private var _userID: String!
     
     
     var year: String {
@@ -50,6 +51,9 @@ class Post {
     var postID: String {
         return _postID
     }
+    var userID: String {
+        return _userID
+    }
     
     init(postKey: String, postData: Dictionary<String, AnyObject>) {
         
@@ -71,13 +75,16 @@ class Post {
         if let model = postData["model"] as? String{
             _model = model
         }
-        if let year = postData["year"] as? String{
-            _year = year
+        if let year = postData["year"] as? Int{
+            _year = "\(year)"
         }
-        if let imageURLs = postData["imageURLs"] as? [String]{
+        if let userID = postData["userID"] as? String{
+            _userID  = userID
+        }
+        if let imageURLs = postData["imageURLs"] as? Dictionary<String, AnyObject> {
             
             for url in imageURLs {
-                _imageURLs.append(url)
+                _imageURLs.append(url.value as! String)
             }
         }
         

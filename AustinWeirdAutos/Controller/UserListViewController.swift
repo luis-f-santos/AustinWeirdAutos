@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class UserListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -18,33 +19,30 @@ class UserListViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.users = []
         tableView.dataSource = self
         tableView.delegate = self
         
-        let user1: Dictionary<String, AnyObject> = [
-            "firstName": "senora" as AnyObject,
-            "lastName": "profunda" as AnyObject,
-            "phoneNumber": "512-2363-3434" as AnyObject
-        ]
-        let user2: Dictionary<String, AnyObject> = [
-            "firstName": "dona" as AnyObject,
-            "lastName": "picheta" as AnyObject,
-            "phoneNumber": "512-3-3434" as AnyObject
-        ]
-        let user3: Dictionary<String, AnyObject> = [
-            "firstName": "dona" as AnyObject,
-            "lastName": "picopato" as AnyObject,
-            "phoneNumber": "512-9922-3434" as AnyObject
-        ]
         
-        let post1  = User(userKey: "abcde", postData: user1)
-        let post2  = User(userKey: "abcde", postData: user2)
-        let post3  = User(userKey: "abcde", postData: user3)
-
-        self.users.append(post1)
-        self.users.append(post2)
-        self.users.append(post3)
+        
+        DataService.ds.REF_USERS.observe(.value, with: { (snapshot) in
+            
+            self.users = []
+            
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                
+                for snap in snapshot {
+                    print("SNAP: \(snap)")
+                    
+                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
+                        
+                        let key = snap.key
+                        let user = User(userKey: key, postData: postDict)
+                        self.users.append(user)
+                    }
+                }
+            }
+            self.tableView.reloadData()
+        })
 
         
     }
@@ -71,4 +69,55 @@ class UserListViewController: UIViewController, UITableViewDelegate, UITableView
             return UserCell()
         }
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        var selectedUser: User!
+        
+        selectedUser = users[indexPath.row]
+        performSegue(withIdentifier: "toOwnerPostsList", sender: selectedUser)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toOwnerPostsList" {
+            if let ownerPostsListVC = segue.destination as? OwnerPostsListViewController {
+                if let user = sender as? User {
+                    ownerPostsListVC.user = user
+                    
+                }
+            }
+            
+        }
+    }
+    
+    
+    
+    //        let user1: Dictionary<String, AnyObject> = [
+    //            "firstName": "senora" as AnyObject,
+    //            "lastName": "profunda" as AnyObject,
+    //            "phoneNumber": "512-2363-3434" as AnyObject
+    //        ]
+    //        let user2: Dictionary<String, AnyObject> = [
+    //            "firstName": "dona" as AnyObject,
+    //            "lastName": "picheta" as AnyObject,
+    //            "phoneNumber": "512-3-3434" as AnyObject
+    //        ]
+    //        let user3: Dictionary<String, AnyObject> = [
+    //            "firstName": "dona" as AnyObject,
+    //            "lastName": "picopato" as AnyObject,
+    //            "phoneNumber": "512-9922-3434" as AnyObject
+    //        ]
+    //
+    //        let post1  = User(userKey: "abcde", postData: user1)
+    //        let post2  = User(userKey: "abcde", postData: user2)
+    //        let post3  = User(userKey: "abcde", postData: user3)
+    //
+    //        self.users.append(post1)
+    //        self.users.append(post2)
+    //        self.users.append(post3)
+    
+    
+    
 }

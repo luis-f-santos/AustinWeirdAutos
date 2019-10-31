@@ -14,6 +14,7 @@
 		BF3223A52365370800A98A5C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3223A42365370800A98A5C /* User.swift */; };
 		BF3223A7236572EC00A98A5C /* OwnerPostsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3223A6236572EC00A98A5C /* OwnerPostsListViewController.swift */; };
 		BF3223A92365739D00A98A5C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3223A82365739D00A98A5C /* Post.swift */; };
+		BF3223AB2366F1EB00A98A5C /* OwnerPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3223AA2366F1EB00A98A5C /* OwnerPostCell.swift */; };
 		BFB233B42350476300827391 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB233B32350476300827391 /* AppDelegate.swift */; };
 		BFB233B62350476300827391 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB233B52350476300827391 /* SignInViewController.swift */; };
 		BFB233B92350476300827391 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB233B72350476300827391 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		BF3223A42365370800A98A5C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BF3223A6236572EC00A98A5C /* OwnerPostsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerPostsListViewController.swift; sourceTree = "<group>"; };
 		BF3223A82365739D00A98A5C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		BF3223AA2366F1EB00A98A5C /* OwnerPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerPostCell.swift; sourceTree = "<group>"; };
 		BFB233B02350476300827391 /* AustinWeirdAutos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AustinWeirdAutos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFB233B32350476300827391 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFB233B52350476300827391 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3223A22365364700A98A5C /* UserCell.swift */,
+				BF3223AA2366F1EB00A98A5C /* OwnerPostCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 			files = (
 				BF3223A7236572EC00A98A5C /* OwnerPostsListViewController.swift in Sources */,
 				BFE7CDDC235FC4FC00E384E1 /* DataService.swift in Sources */,
+				BF3223AB2366F1EB00A98A5C /* OwnerPostCell.swift in Sources */,
 				BF3223A12365352C00A98A5C /* UserListViewController.swift in Sources */,
 				BF3223A92365739D00A98A5C /* Post.swift in Sources */,
 				BF3223A52365370800A98A5C /* User.swift in Sources */,
