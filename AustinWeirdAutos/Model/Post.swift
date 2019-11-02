@@ -10,6 +10,7 @@ import Foundation
 
 class Post {
     
+    
     private var _year: String!
     private var _make: String!
     private var _model: String!
@@ -19,6 +20,7 @@ class Post {
     private var _imageURLs: [String]!
     private var _postID: String!
     private var _userID: String!
+    private var _dateCreated: String!
     
     
     var year: String {
@@ -55,11 +57,20 @@ class Post {
         return _userID
     }
     
+    var dateCreated: String {
+        return _dateCreated
+    }
+    
     init(postKey: String, postData: Dictionary<String, AnyObject>) {
         
         _imageURLs = [String]()
         _postID = postKey
         
+        if let dateCreated = postData["dateCreated"] as? String{
+            _dateCreated = dateCreated
+        }else{
+            _dateCreated = ""
+        }
         if let description = postData["description"] as? String{
             _description = description
         }
@@ -77,6 +88,9 @@ class Post {
         }
         if let year = postData["year"] as? Int{
             _year = "\(year)"
+        }else {
+            let year = postData["year"] as? String
+            _year = year
         }
         if let userID = postData["userID"] as? String{
             _userID  = userID

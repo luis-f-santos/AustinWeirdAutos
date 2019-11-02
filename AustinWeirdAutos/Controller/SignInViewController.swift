@@ -98,8 +98,20 @@ class SignInViewController: UIViewController {
         
         passwordTextField.text = ""
         
-        performSegue(withIdentifier: "toUserList", sender: nil)
+        performSegue(withIdentifier: "toUserPostsVC", sender: "exampleUser"/*id*/)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toUserPostsVC" {
+            if let userPostsListVC = segue.destination as? UserPostsViewController {
+                if let userID = sender as? String {
+                    userPostsListVC.userID = userID
+                    
+                }
+            }
+            
+        }
     }
         
     

@@ -1,36 +1,27 @@
 //
-//  OwnerPostsListViewController.swift
+//  UserPostsViewController.swift
 //  AustinWeirdAutos
 //
-//  Created by Luis Santos on 10/27/19.
+//  Created by Luis Santos on 11/2/19.
 //  Copyright © 2019 Luis Santos. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
-
+class UserPostsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+    
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var userNameLbl: UILabel!
-    
-    
     var posts = [Post]()
-    var user: User!
-    
+    var userID: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
         tableView.delegate = self
-        if let userName = user?.firstName {
-            userNameLbl.text = userName
-        }
-
-        
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
             
@@ -44,8 +35,8 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
                     if let postDict = snap.value as? Dictionary<String, AnyObject> {
                         
                         if let userID = postDict["userID"] as? String {
-                        
-                            if(userID  == self.user.userID){
+                            
+                            if(userID  == self.userID){
                                 
                                 let key = snap.key
                                 let post = Post(postKey: key, postData: postDict)
@@ -71,54 +62,19 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
         
         let post = posts[indexPath.row]
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "OwnerPostCell") as? OwnerPostCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "UserPostCell") as? UserPostCell {
             
-            cell.configureOwnerPostCell(post: post)
+            cell.configureUserPostCell(post: post)
             return cell
             
         } else {
-            
-            return OwnerPostCell()
+            return UserPostCell()
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //var selectedUser = user
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "OwnerPostCell") as? OwnerPostCell {
-            
-            cell.isSelected = false
-            
-        }
-        
-        
-    }
-    
-    @IBAction func backBtnTapped(_ sender: Any) {
-        
-        dismiss(animated: true, completion: nil )
-        
     }
 
 
-    
-    @IBAction func circledPlusTapped(_ sender: Any) {
-        
-        performSegue(withIdentifier: "toCreatePostVC", sender: user)
-        
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toCreatePostVC" {
-            if let createPostVC = segue.destination as? CreatePostViewController {
-                if let user = sender as? User {
-                    createPostVC.currentUser = user
-                    
-                }
-            }
-            
-        }
-    }
-    
 }
