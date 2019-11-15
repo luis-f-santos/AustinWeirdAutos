@@ -76,5 +76,14 @@ class UserPostsViewController: UIViewController, UITableViewDelegate, UITableVie
         
     }
 
-
+    @IBAction func signOutTapped(_ sender: Any) {
+        
+        performSegue(withIdentifier: "toFeedVC", sender: nil)
+        
+    }
+    
+    @IBAction func backBtnTapped(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil )
+    }
 }

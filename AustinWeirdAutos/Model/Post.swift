@@ -17,6 +17,7 @@ class Post {
     private var _description: String!
     private var _isComplete: Bool!
     private var _isPublic: Bool!
+    private var _likes: Int!
     private var _imageURLs: [String]!
     private var _postID: String!
     private var _userID: String!
@@ -44,6 +45,10 @@ class Post {
     
     var isPublic: Bool  {
         return _isPublic
+    }
+    
+    var likes: Int {
+        return _likes
     }
     
     var imageURLs: [String] {
@@ -91,6 +96,9 @@ class Post {
         }else {
             let year = postData["year"] as? String
             _year = year
+        }
+        if let likes = postData["likes"] as? Int {
+            _likes = likes
         }
         if let userID = postData["userID"] as? String{
             _userID  = userID

@@ -98,7 +98,7 @@ class SignInViewController: UIViewController {
         
         passwordTextField.text = ""
         
-        performSegue(withIdentifier: "toUserPostsVC", sender: "exampleUser"/*id*/)
+        performSegue(withIdentifier: "toUserList", sender: nil/*"exampleUser"*//*id*/)
         
     }
     
@@ -110,7 +110,15 @@ class SignInViewController: UIViewController {
                     
                 }
             }
-            
+        }
+        
+        if segue.identifier == "toUserList" {
+//            if let userListVC = segue.destination as? UserListViewController {
+//                if let userID = sender as? String {
+//                    userPostsListVC.userID = userID
+//
+//                }
+//            }
         }
     }
         

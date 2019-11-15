@@ -7,29 +7,76 @@
 //
 
 import UIKit
+import Firebase
 
-class FeedViewController: UIViewController {
-
+class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var posts = [Post]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        
+        DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
+            
+            self.posts = []
+            
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                
+                for snap in snapshot {
+                    print("SNAP: \(snap)")
+                    
+                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
+                        
+                        if let userID = postDict["userID"] as? String {
+                            
+                            //if(userID  == self.userID){
+                                
+                                let key = snap.key
+                                let post = Post(postKey: key, postData: postDict)
+                                self.posts.append(post)
+                            //}
+                        }
+                    }
+                }
+            }
+            self.tableView.reloadData()
+        })
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-    */
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let post = posts[indexPath.row]
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "FeedPostCell") as? FeedPostCell {
+            
+            cell.configureFeedCell(post: post)
+            return cell
+            
+        } else {
+            return FeedPostCell()
+        }
+    }
 
+    @IBAction func signOutTapped(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    
 }

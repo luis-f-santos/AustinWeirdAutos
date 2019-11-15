@@ -25,6 +25,8 @@
 		BFB233BE2350476300827391 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB233BC2350476300827391 /* LaunchScreen.storyboard */; };
 		BFB233C92350476300827391 /* AustinWeirdAutosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB233C82350476300827391 /* AustinWeirdAutosTests.swift */; };
 		BFB233D423504FB800827391 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFB233D323504FB400827391 /* GoogleService-Info.plist */; };
+		BFCB8F81236D8D2000627FE7 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB8F80236D8D2000627FE7 /* FeedViewController.swift */; };
+		BFCB8F83236D8E8E00627FE7 /* FeedPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB8F82236D8E8E00627FE7 /* FeedPostCell.swift */; };
 		BFE7CDDC235FC4FC00E384E1 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7CDDB235FC4FC00E384E1 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		BFB233C82350476300827391 /* AustinWeirdAutosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AustinWeirdAutosTests.swift; sourceTree = "<group>"; };
 		BFB233CA2350476300827391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFB233D323504FB400827391 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BFCB8F80236D8D2000627FE7 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		BFCB8F82236D8E8E00627FE7 /* FeedPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostCell.swift; sourceTree = "<group>"; };
 		BFE7CDDB235FC4FC00E384E1 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		E6A351A12189DF97C690D37D /* Pods_AustinWeirdAutosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AustinWeirdAutosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -162,6 +166,7 @@
 				BF3223A6236572EC00A98A5C /* OwnerPostsListViewController.swift */,
 				BF946DAC236BBD2000997AC3 /* CreatePostViewController.swift */,
 				BF946DAE236D52B300997AC3 /* UserPostsViewController.swift */,
+				BFCB8F80236D8D2000627FE7 /* FeedViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				BF3223A22365364700A98A5C /* UserCell.swift */,
 				BF3223AA2366F1EB00A98A5C /* OwnerPostCell.swift */,
 				BF946DB0236D534700997AC3 /* UserPostCell.swift */,
+				BFCB8F82236D8E8E00627FE7 /* FeedPostCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -372,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF946DAD236BBD2000997AC3 /* CreatePostViewController.swift in Sources */,
+				BFCB8F83236D8E8E00627FE7 /* FeedPostCell.swift in Sources */,
 				BF3223A7236572EC00A98A5C /* OwnerPostsListViewController.swift in Sources */,
 				BFE7CDDC235FC4FC00E384E1 /* DataService.swift in Sources */,
 				BF3223AB2366F1EB00A98A5C /* OwnerPostCell.swift in Sources */,
@@ -382,6 +389,7 @@
 				BFB233B62350476300827391 /* SignInViewController.swift in Sources */,
 				BFB233B42350476300827391 /* AppDelegate.swift in Sources */,
 				BF946DAF236D52B300997AC3 /* UserPostsViewController.swift in Sources */,
+				BFCB8F81236D8D2000627FE7 /* FeedViewController.swift in Sources */,
 				BF3223A32365364700A98A5C /* UserCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

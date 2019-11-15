@@ -7,18 +7,60 @@
 //
 
 import UIKit
+import Firebase
 
 class FeedPostCell: UITableViewCell {
-
+    
+    
+    @IBOutlet weak var makeImage: UIImageView!
+    
+    @IBOutlet weak var postImage: UIImageView!
+    
+    @IBOutlet weak var vehicleLbl: UILabel!
+    @IBOutlet weak var dateCreatedLbl: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var numLikesLbl: UILabel!
+    
+    var post: Post!
+    
+    
+    func configureFeedCell(post: Post) {
+        
+        self.post =  post
+        vehicleLbl.text  = "\(post.year) \(post.make) \(post.model)"
+        dateCreatedLbl.text = post.dateCreated
+        descriptionTextView.text = post.description
+        numLikesLbl.text = "\(post.likes)"
+        
+        if post.imageURLs.count > 0 {
+            
+            print("url to download: \(post.imageURLs[0])")
+            let ref = Storage.storage().reference(forURL: post.imageURLs[0])
+            
+            //maxSize = 2Mb
+            ref.getData(maxSize: 2 * 1024 * 1024, completion: { (data, error) in
+                
+                if error != nil {
+                    print("LUIS: Unable to download image from FirebaseStorage")
+                } else {
+                    
+                    print("LUIS: Successfull Downloaded from firebase storage")
+                    
+                    if let imgData = data {
+                        if let img = UIImage(data: imgData){
+                            self.postImage.image = img
+                            // FeedViewController.imageCache.setObject(img, forKey: post.imageUrl as NSString)
+                        }
+                    }
+                }
+            })
+        }
+        
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
