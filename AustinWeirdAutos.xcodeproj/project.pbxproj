@@ -15,9 +15,11 @@
 		BF3223A7236572EC00A98A5C /* OwnerPostsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3223A6236572EC00A98A5C /* OwnerPostsListViewController.swift */; };
 		BF3223A92365739D00A98A5C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3223A82365739D00A98A5C /* Post.swift */; };
 		BF3223AB2366F1EB00A98A5C /* OwnerPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3223AA2366F1EB00A98A5C /* OwnerPostCell.swift */; };
+		BF55DCB5237E3F02001E32CC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55DCB4237E3F02001E32CC /* AuthService.swift */; };
 		BF946DAD236BBD2000997AC3 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF946DAC236BBD2000997AC3 /* CreatePostViewController.swift */; };
 		BF946DAF236D52B300997AC3 /* UserPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF946DAE236D52B300997AC3 /* UserPostsViewController.swift */; };
 		BF946DB1236D534700997AC3 /* UserPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF946DB0236D534700997AC3 /* UserPostCell.swift */; };
+		BF99729223981AF100C61F7D /* CreateNewUserModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99729123981AF100C61F7D /* CreateNewUserModalViewController.swift */; };
 		BFB233B42350476300827391 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB233B32350476300827391 /* AppDelegate.swift */; };
 		BFB233B62350476300827391 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB233B52350476300827391 /* SignInViewController.swift */; };
 		BFB233B92350476300827391 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB233B72350476300827391 /* Main.storyboard */; };
@@ -52,9 +54,11 @@
 		BF3223A6236572EC00A98A5C /* OwnerPostsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerPostsListViewController.swift; sourceTree = "<group>"; };
 		BF3223A82365739D00A98A5C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BF3223AA2366F1EB00A98A5C /* OwnerPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerPostCell.swift; sourceTree = "<group>"; };
+		BF55DCB4237E3F02001E32CC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		BF946DAC236BBD2000997AC3 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		BF946DAE236D52B300997AC3 /* UserPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsViewController.swift; sourceTree = "<group>"; };
 		BF946DB0236D534700997AC3 /* UserPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostCell.swift; sourceTree = "<group>"; };
+		BF99729123981AF100C61F7D /* CreateNewUserModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewUserModalViewController.swift; sourceTree = "<group>"; };
 		BFB233B02350476300827391 /* AustinWeirdAutos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AustinWeirdAutos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFB233B32350476300827391 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFB233B52350476300827391 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				BF946DAC236BBD2000997AC3 /* CreatePostViewController.swift */,
 				BF946DAE236D52B300997AC3 /* UserPostsViewController.swift */,
 				BFCB8F80236D8D2000627FE7 /* FeedViewController.swift */,
+				BF99729123981AF100C61F7D /* CreateNewUserModalViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				BFE7CDDB235FC4FC00E384E1 /* DataService.swift */,
+				BF55DCB4237E3F02001E32CC /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -387,8 +393,10 @@
 				BF946DB1236D534700997AC3 /* UserPostCell.swift in Sources */,
 				BF3223A52365370800A98A5C /* User.swift in Sources */,
 				BFB233B62350476300827391 /* SignInViewController.swift in Sources */,
+				BF99729223981AF100C61F7D /* CreateNewUserModalViewController.swift in Sources */,
 				BFB233B42350476300827391 /* AppDelegate.swift in Sources */,
 				BF946DAF236D52B300997AC3 /* UserPostsViewController.swift in Sources */,
+				BF55DCB5237E3F02001E32CC /* AuthService.swift in Sources */,
 				BFCB8F81236D8D2000627FE7 /* FeedViewController.swift in Sources */,
 				BF3223A32365364700A98A5C /* UserCell.swift in Sources */,
 			);
