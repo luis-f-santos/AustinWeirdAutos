@@ -52,28 +52,8 @@ class AuthService {
                     if errorCode == AuthErrorCode.userNotFound {
                         
                         //Prompt user to comfirm password to create new user
-                        
                         onComplete?(nil, user, true)
-                        
-//                        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
-//                            if error != nil {
-//                                //Show error to user
-//                                self.handleFirebaseError(error: error! as NSError, onComplete: onComplete)
-//                            } else {
-//                                if user?.user.uid != nil { // Firebase User ID created and exists now so Sign-in
-//                                    Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
-//
-//                                        if error != nil {
-//                                            //Show error to user
-//                                            self.handleFirebaseError(error: error! as NSError, onComplete: onComplete)
-//                                        } else {
-//                                            //SignIn successfull
-//                                            onComplete?(nil, user, false)
-//                                        }
-//                                    })
-//                                }
-//                            }
-//                        })
+
                     } else {
                         // Handle all other errors
                         self.handleFirebaseError(error: error! as NSError, onComplete: onComplete)

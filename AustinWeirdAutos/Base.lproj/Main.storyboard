@@ -171,6 +171,7 @@
                     <connections>
                         <outlet property="firstNameTextView" destination="vVf-fX-H7h" id="Mft-9A-Thd"/>
                         <outlet property="lastNameTextView" destination="MsC-Zn-Ogg" id="diI-to-KcZ"/>
+                        <outlet property="passwordLabel" destination="53m-Oq-F4P" id="LsQ-1e-I7j"/>
                         <outlet property="passwordTextView" destination="Qxw-XP-nnV" id="1q9-gy-l4l"/>
                         <outlet property="phoneNumberTextView" destination="Hkc-ku-o7I" id="bch-QF-RRk"/>
                     </connections>

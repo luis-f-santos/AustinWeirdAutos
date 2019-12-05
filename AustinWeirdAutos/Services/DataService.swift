@@ -12,12 +12,14 @@ import SwiftKeychainWrapper
 
 let DB_BASE = Database.database().reference()
 let STORAGE_BASE = Storage.storage().reference()
+let MASTER_UID = "nJJEHE62dfUhbzKhZ2LsZRc4nqY2"
 
 class DataService {
     
     static let ds = DataService()
     
     //DB references
+    private var _REF_MASTER_UID = MASTER_UID
     private var _REF_BASE = DB_BASE
     private var _REF_POSTS = DB_BASE.child("posts")
     private var _REF_USERS = DB_BASE.child("users")
@@ -25,6 +27,9 @@ class DataService {
     //Storage reference
     private var _REF_WEIRD_IMAGES = STORAGE_BASE.child("weird-pics")
     
+    var REF_MASTER_UID: String {
+        return _REF_MASTER_UID
+    }
     var REF_BASE: DatabaseReference {
         return _REF_BASE
     }
@@ -47,7 +52,7 @@ class DataService {
     
     
     
-    func createFirebaseDBUser(uid: String, userData: Dictionary<String, String>) {
+    func createFirebaseDBUser(uid: String, userData: Dictionary<String, AnyObject>) {
         
         REF_USERS.child(uid).updateChildValues(userData)
     }

@@ -19,6 +19,8 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    var userData = Dictionary<String, AnyObject>();
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -55,46 +57,19 @@ class SignInViewController: UIViewController {
                     }
                     
                     //Message is empty so login must've been
+                    if let authData = data {
+                        
+                        self.userData["provider"] = authData.user.providerID as AnyObject
+                        self.userData["email"] = email as AnyObject
+                        self.userData["password"] = password as AnyObject
+                        
+                        self.completeSignIn(id: authData.user.uid, userData: self.userData)
+                    }
                 
                 }
             })
             
-//            Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
 //
-//                if error != nil {  // Can't signIn, need to create user or handle error
-//
-//                    Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
-//
-//                        if error != nil { //Couldn't create a new user due to badpassword, bad email, etc...
-//
-//                            //TODO: check error and display them to user
-//                            print("LUIS: Unable to Authinticate with FireBase")
-//
-//
-//                        } else { // Sucessfully created a new user
-//
-//                            print("LUIS: Successfully authenticated with Firebase")
-//
-//                            if let authData = user {
-//
-//                                let userData = ["provider": authData.user.providerID]
-//                                self.completeSignIn(id: authData.user.uid, userData: userData)
-//                            }
-//                        }
-//                    })
-//
-//
-//                } else { // Successfully Authenticated with Firebase
-//
-//                    //NO errors, email and password match with firebase
-//                    print("LUIS: Email user authenticated with Firebase")
-//
-//                    if let authData = user {
-//                        let userData = ["provider": authData.user.providerID]
-//                        self.completeSignIn(id: authData.user.uid, userData: userData)
-//                    }
-//                }
-//            })
         }
         else {
             //Email and password are blank... update bottom banner to show to user
@@ -103,27 +78,70 @@ class SignInViewController: UIViewController {
         
     }
     
+    func createNewUser(_ data: Dictionary<String, AnyObject>) -> () {
+        
+        if let _ = data["firstName"] as? String, let _ = data["lastName"] as? String, let _ = data["phoneNumber"] as? String {
+            
+            self.userData = data
+            
+            if let email = emailTextField.text, let password = passwordTextField.text {
+                
+                AuthService.instance.createNewUser(email: email, password: password, onComplete: { (errMsg, data, isNewUser) in
+                    
+                    
+                    guard errMsg == nil else {
+                        let alert = UIAlertController(title: "Error Authentication", message: errMsg, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                        return
+                    }
+                    
+                    //Message is empty so login must've been
+                    print("LUIS: Email user authenticated with Firebase")
+                    
+                    if let authData = data {
+                        
+                        self.userData["provider"] = authData.user.providerID as AnyObject
+                        self.userData["email"] = email as AnyObject
+                        self.userData["password"] = password as AnyObject
+                        
+                        self.completeSignIn(id: authData.user.uid, userData: self.userData)
+                    }
+                    
+                })
+                
+            }
+            
+        }
     
-    func completeSignIn(id: String, userData: Dictionary<String, String>){
+    }
+    
+    
+    func completeSignIn(id: String, userData: Dictionary<String, AnyObject>){
         
         DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
-        
-        KeychainWrapper.standard.set(id, forKey: "uid")
+        //KeychainWrapper.standard.set(id, forKey: "uid")
         
         passwordTextField.text = ""
+        emailTextField.text = ""
+        self.userData = [:]
         
-        performSegue(withIdentifier: "toUserList", sender: nil/*"exampleUser"*//*id*/)
+        if (DataService.ds.REF_MASTER_UID == id) {
+            performSegue(withIdentifier: "toUserList", sender: nil)
+        }
+        else {
+            performSegue(withIdentifier: "toUserPostsVC", sender: id)
+        }
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
         if segue.identifier == "toCreateNewUser" {
             if let createNewUserVC = segue.destination as? CreateNewUserModalViewController {
                 if let password = sender as? String {
                     createNewUserVC.originalPassword = password
-                    
+                    createNewUserVC.onSave = createNewUser
                 }
             }
         }
@@ -131,19 +149,10 @@ class SignInViewController: UIViewController {
             if let userPostsListVC = segue.destination as? UserPostsViewController {
                 if let userID = sender as? String {
                     userPostsListVC.userID = userID
-                    
                 }
             }
         }
-        
-        if segue.identifier == "toUserList" {
-//            if let userListVC = segue.destination as? UserListViewController {
-//                if let userID = sender as? String {
-//                    userPostsListVC.userID = userID
-//
-//                }
-//            }
-        }
+
     }
         
     
