@@ -295,7 +295,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="woP-E0-rXl">
                                 <rect key="frame" x="0.0" y="592" width="375" height="75"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you haven't signed in before, an account will be automatically created for you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wh-0C-nJz">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you haven't signed in before, an account will be created for you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wh-0C-nJz">
                                         <rect key="frame" x="15" y="19.5" width="345" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="Hwd-XO-ffB"/>
@@ -332,6 +332,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="bottomBannerLbl" destination="3wh-0C-nJz" id="yuS-ds-n5h"/>
                         <outlet property="emailTextField" destination="DCm-Xk-Jb7" id="mYP-7V-Khc"/>
                         <outlet property="passwordTextField" destination="HGq-zh-bpO" id="7N6-Dy-oto"/>
                         <segue destination="QSw-9E-HSq" kind="show" identifier="toUserPostsVC" id="loC-6m-bhZ"/>
@@ -360,12 +361,16 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign-out" translatesAutoresizingMaskIntoConstraints="NO" id="MVi-IA-SNr">
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign-out" translatesAutoresizingMaskIntoConstraints="NO" id="MVi-IA-SNr">
                                         <rect key="frame" x="323" y="31" width="38" height="36"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="38" id="ISw-NN-pKB"/>
                                             <constraint firstAttribute="height" constant="36" id="Lc3-65-ykd"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Xa6-TR-JqU" appends="YES" id="rSE-Ln-kNJ"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.74552059169999996" green="0.097342051570000004" blue="0.1379183531" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -473,6 +478,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lAj-p4-wCm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Xa6-TR-JqU">
+                    <connections>
+                        <action selector="signOutTapped:" destination="LZQ-Ya-iuC" id="Jia-7y-Opv"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1862" y="751"/>
         </scene>
@@ -844,7 +854,7 @@
         <!--User Posts View Controller-->
         <scene sceneID="Rll-yH-dIv">
             <objects>
-                <viewController id="QSw-9E-HSq" customClass="UserPostsViewController" customModule="AustinWeirdAutos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserPostsViewController" id="QSw-9E-HSq" customClass="UserPostsViewController" customModule="AustinWeirdAutos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="erf-Cv-8wL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -869,28 +879,15 @@
                                             <outletCollection property="gestureRecognizers" destination="J8c-je-IoA" appends="YES" id="gKP-Z6-bGk"/>
                                         </connections>
                                     </imageView>
-                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="Hca-He-GLo">
-                                        <rect key="frame" x="14" y="31" width="38" height="36"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="38" id="WJX-el-9n7"/>
-                                            <constraint firstAttribute="height" constant="36" id="fek-jh-YCg"/>
-                                        </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Do7-rP-afP" appends="YES" id="pho-kb-SXr"/>
-                                        </connections>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.74552059173583984" green="0.097342051565647125" blue="0.13791835308074951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="4hb-sM-7CD" firstAttribute="centerX" secondItem="xcW-0y-bhV" secondAttribute="centerX" id="Dak-1S-Hp3"/>
                                     <constraint firstAttribute="bottom" secondItem="4hb-sM-7CD" secondAttribute="bottom" constant="16" id="Exb-77-Rwv"/>
-                                    <constraint firstAttribute="bottom" secondItem="Hca-He-GLo" secondAttribute="bottom" constant="13" id="NzB-II-JYq"/>
                                     <constraint firstAttribute="height" constant="80" id="U6l-JY-cb0"/>
                                     <constraint firstAttribute="width" constant="375" id="gKP-k1-iaA"/>
                                     <constraint firstAttribute="trailing" secondItem="mCL-09-OMo" secondAttribute="trailing" constant="14" id="kfR-f6-Glx"/>
                                     <constraint firstAttribute="bottom" secondItem="mCL-09-OMo" secondAttribute="bottom" constant="13" id="pcb-G4-YhB"/>
-                                    <constraint firstItem="Hca-He-GLo" firstAttribute="leading" secondItem="xcW-0y-bhV" secondAttribute="leading" constant="14" id="wc8-bz-5Cv"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rnh-ur-Wee">

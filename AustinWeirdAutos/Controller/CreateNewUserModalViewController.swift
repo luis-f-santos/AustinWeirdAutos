@@ -22,6 +22,7 @@ class CreateNewUserModalViewController: UIViewController {
     var originalPassword: String!
     
     var onSave: ((_ data: Dictionary<String, AnyObject>) -> ())?
+    var onCancel: (() -> ())?
     
     
     override func viewDidLoad() {
@@ -32,6 +33,7 @@ class CreateNewUserModalViewController: UIViewController {
     
     @IBAction func cancelBtnTapped(_ sender: Any) {
         
+        onCancel?()
         dismiss(animated: true, completion: nil)
     }
     

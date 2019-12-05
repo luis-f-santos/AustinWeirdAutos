@@ -10,11 +10,43 @@ import UIKit
 
 class CustomTabController: UITabBarController {
     
+    var userID: String!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //let feedController = FeedViewController()
+        
+        var userViewController = UIViewController()
+        
+        if let uid = userID {
+            
+            if let myUserViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserPostsViewController") as? UserPostsViewController {
+                
+                myUserViewController.userID = uid
+                userViewController = myUserViewController
+            }
+            
+            
+            
+        } else {
+            
+            if let myUserListController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserListViewController") as? UserListViewController {
+                
+                userViewController = myUserListController
+            }
+            
+        }
+        
+        
+        
+        let userNavController = UINavigationController(rootViewController: userViewController)
+        userNavController.tabBarItem.title = "Home"
+        userNavController.tabBarItem.image = UIImage(named: "empty-heart")
+        userViewController.navigationController?.isNavigationBarHidden = true
+        
+        
         let feedController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedViewController")
 
         let feedNavController = UINavigationController(rootViewController: feedController)
@@ -23,12 +55,7 @@ class CustomTabController: UITabBarController {
         feedController.navigationController?.isNavigationBarHidden = true
         
         
-        let userListController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserListViewController")
         
-        let userNavController = UINavigationController(rootViewController: userListController)
-        userNavController.tabBarItem.title = "UserList"
-        userNavController.tabBarItem.image = UIImage(named: "empty-heart")
-        userListController.navigationController?.isNavigationBarHidden = true
 
         
         viewControllers = [userNavController, feedNavController]

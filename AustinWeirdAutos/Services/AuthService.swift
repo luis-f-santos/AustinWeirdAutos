@@ -44,6 +44,12 @@ class AuthService {
     
     func login(email: String, password: String, onComplete: Completion?) {
         
+        if (isValidEmail(emailStr: email) == false) {
+            onComplete?("Invalid email address", nil,  false)
+            return
+            
+        }
+        
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             
             if error != nil {
@@ -65,6 +71,14 @@ class AuthService {
                 onComplete?(nil, user, false)
             }
         })
+    }
+    
+    func isValidEmail(emailStr:String) -> Bool {
+        
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: emailStr)
     }
     
     

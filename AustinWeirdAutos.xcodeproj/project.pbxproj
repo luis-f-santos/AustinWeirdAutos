@@ -31,6 +31,7 @@
 		BFCB8F83236D8E8E00627FE7 /* FeedPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB8F82236D8E8E00627FE7 /* FeedPostCell.swift */; };
 		BFE7CDDC235FC4FC00E384E1 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7CDDB235FC4FC00E384E1 /* DataService.swift */; };
 		BFF594122398937F0038BA19 /* CustomTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF594112398937F0038BA19 /* CustomTabController.swift */; };
+		BFF59415239973130038BA19 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF59414239973130038BA19 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		BFCB8F82236D8E8E00627FE7 /* FeedPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostCell.swift; sourceTree = "<group>"; };
 		BFE7CDDB235FC4FC00E384E1 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		BFF594112398937F0038BA19 /* CustomTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabController.swift; sourceTree = "<group>"; };
+		BFF59414239973130038BA19 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E6A351A12189DF97C690D37D /* Pods_AustinWeirdAutosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AustinWeirdAutosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				BFB233B32350476300827391 /* AppDelegate.swift */,
+				BFF59413239972DE0038BA19 /* Util */,
 				BFE7CDDA235FC4D400E384E1 /* Services */,
 				BFE7CDD8235FC4C100E384E1 /* Model */,
 				BFE7CDD9235FC4CE00E384E1 /* View */,
@@ -206,6 +209,14 @@
 				BF55DCB4237E3F02001E32CC /* AuthService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		BFF59413239972DE0038BA19 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				BFF59414239973130038BA19 /* Constants.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,6 +414,7 @@
 				BF55DCB5237E3F02001E32CC /* AuthService.swift in Sources */,
 				BFCB8F81236D8D2000627FE7 /* FeedViewController.swift in Sources */,
 				BF3223A32365364700A98A5C /* UserCell.swift in Sources */,
+				BFF59415239973130038BA19 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

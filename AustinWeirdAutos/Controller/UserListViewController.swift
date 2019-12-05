@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import SwiftKeychainWrapper
+
 
 class UserListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -92,6 +94,13 @@ class UserListViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    @IBAction func signOutTapped(_ sender: Any) {
+        
+        let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
+        print("LUIS: ID removed from keychain \(keychainResult)")
+        try! Auth.auth().signOut()
+        dismiss(animated: true, completion: nil)
+    }
     
     
     //        let user1: Dictionary<String, AnyObject> = [

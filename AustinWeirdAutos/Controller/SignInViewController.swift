@@ -19,6 +19,8 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var bottomBannerLbl: UILabel!
+    
     var userData = Dictionary<String, AnyObject>();
     
     override func viewDidLoad() {
@@ -26,14 +28,20 @@ class SignInViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-//    override func viewDidAppear(_ animated: Bool) {
-//
-//        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
-//
-//            performSegue(withIdentifier: "toFeedVC", sender: nil)
-//        }
-//
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+
+        if let uid = KeychainWrapper.standard.string(forKey: KEY_UID) {
+
+            if (DataService.ds.REF_MASTER_UID == uid) {
+                performSegue(withIdentifier: "toCustomTabController", sender: nil)
+            }
+            else {
+                
+                performSegue(withIdentifier: "toCustomTabController", sender: uid)
+            }
+        }
+
+    }
 
     @IBAction func loginTapped(_ sender: Any) {
         
@@ -73,6 +81,7 @@ class SignInViewController: UIViewController {
         }
         else {
             //Email and password are blank... update bottom banner to show to user
+            bottomBannerLbl.text = EMPTY_LOGIN_TEXT
             
         }
         
@@ -97,7 +106,7 @@ class SignInViewController: UIViewController {
                     }
                     
                     //Message is empty so login must've been
-                    print("LUIS: Email user authenticated with Firebase")
+                    print("LUIS: \(email) user authenticated with Firebase")
                     
                     if let authData = data {
                         
@@ -120,21 +129,24 @@ class SignInViewController: UIViewController {
     func completeSignIn(id: String, userData: Dictionary<String, AnyObject>){
         
         DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
-        //KeychainWrapper.standard.set(id, forKey: "uid")
+        KeychainWrapper.standard.set(id, forKey: KEY_UID)
         
         passwordTextField.text = ""
-        emailTextField.text = ""
         self.userData = [:]
         
         if (DataService.ds.REF_MASTER_UID == id) {
-            performSegue(withIdentifier: "toUserList", sender: nil)
+            performSegue(withIdentifier: "toCustomTabController", sender: nil)
         }
         else {
             
             performSegue(withIdentifier: "toCustomTabController", sender: id)
-            //performSegue(withIdentifier: "toUserPostsVC", sender: id)
         }
         
+    }
+    
+    func cancelCreatingNewAccount() -> () {
+        passwordTextField.text = ""
+        emailTextField.text = ""
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -144,13 +156,14 @@ class SignInViewController: UIViewController {
                 if let password = sender as? String {
                     createNewUserVC.originalPassword = password
                     createNewUserVC.onSave = createNewUser
+                    createNewUserVC.onCancel = cancelCreatingNewAccount
                 }
             }
         }
-        if segue.identifier == "toUserPostsVC" {
-            if let userPostsListVC = segue.destination as? UserPostsViewController {
+        if segue.identifier == "toCustomTabController" {
+            if let customTabVC = segue.destination as? CustomTabController {
                 if let userID = sender as? String {
-                    userPostsListVC.userID = userID
+                    customTabVC.userID = userID
                 }
             }
         }

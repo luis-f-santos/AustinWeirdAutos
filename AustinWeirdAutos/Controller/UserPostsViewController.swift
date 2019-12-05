@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SwiftKeychainWrapper
 
 class UserPostsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
@@ -78,12 +79,14 @@ class UserPostsViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBAction func signOutTapped(_ sender: Any) {
         
-        performSegue(withIdentifier: "toFeedVC", sender: nil)
+        let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
+        print("LUIS: ID removed from keychain \(keychainResult)")
+        try! Auth.auth().signOut()
+        dismiss(animated: true, completion: nil)
+//        performSegue(withIdentifier: "goToSignIn", sender: nil)
+//
+//        performSegue(withIdentifier: "toFeedVC", sender: nil)
         
     }
     
-    @IBAction func backBtnTapped(_ sender: Any) {
-        
-        dismiss(animated: true, completion: nil )
-    }
 }
