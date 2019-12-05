@@ -178,7 +178,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BT3-La-zSA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="148" y="-554.57271364317842"/>
+            <point key="canvasLocation" x="-425" y="910"/>
+        </scene>
+        <!--Custom Tab Controller-->
+        <scene sceneID="lro-H6-4XF">
+            <objects>
+                <tabBarController storyboardIdentifier="CustomTabController" id="DAw-mR-rop" customClass="CustomTabController" customModule="AustinWeirdAutos" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mxB-ny-bKM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dtH-F7-TpH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1129" y="89"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -319,9 +334,9 @@
                     <connections>
                         <outlet property="emailTextField" destination="DCm-Xk-Jb7" id="mYP-7V-Khc"/>
                         <outlet property="passwordTextField" destination="HGq-zh-bpO" id="7N6-Dy-oto"/>
-                        <segue destination="LZQ-Ya-iuC" kind="show" identifier="toUserList" id="P2W-an-2pf"/>
                         <segue destination="QSw-9E-HSq" kind="show" identifier="toUserPostsVC" id="loC-6m-bhZ"/>
                         <segue destination="sot-Ya-7Vv" kind="presentation" identifier="toCreateNewUser" id="2GR-Vp-GCH"/>
+                        <segue destination="DAw-mR-rop" kind="show" identifier="toCustomTabController" id="0Jh-lB-7vf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -331,7 +346,7 @@
         <!--User List View Controller-->
         <scene sceneID="MLf-qe-CXt">
             <objects>
-                <viewController id="LZQ-Ya-iuC" customClass="UserListViewController" customModule="AustinWeirdAutos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserListViewController" id="LZQ-Ya-iuC" customClass="UserListViewController" customModule="AustinWeirdAutos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L6r-bI-RRG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -451,14 +466,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PFo-DS-FjO"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="jc5-WD-Z7J" id="UiB-UM-Lvl"/>
-                        <segue destination="M94-H6-71I" kind="show" identifier="toOwnerPostsList" id="HaN-TG-wqx"/>
+                        <segue destination="M94-H6-71I" kind="showDetail" identifier="toOwnerPostsList" id="HaN-TG-wqx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lAj-p4-wCm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="125.59999999999999" y="882.90854572713647"/>
+            <point key="canvasLocation" x="1862" y="751"/>
         </scene>
         <!--Owner Posts List View Controller-->
         <scene sceneID="fEk-mM-4ew">
@@ -669,7 +685,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1022" y="883"/>
+            <point key="canvasLocation" x="2772" y="751"/>
         </scene>
         <!--Create Post View Controller-->
         <scene sceneID="Ti3-iX-7xc">
@@ -823,7 +839,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1879.2" y="884.70764617691157"/>
+            <point key="canvasLocation" x="3690" y="751"/>
         </scene>
         <!--User Posts View Controller-->
         <scene sceneID="Rll-yH-dIv">
@@ -1021,7 +1037,6 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Rnh-ur-Wee" id="67w-xi-LIL"/>
-                        <segue destination="Nr6-Be-VWQ" kind="show" identifier="toFeedVC" id="XD0-oN-DwE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJR-Wd-QVF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1036,12 +1051,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1008.8" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1932" y="-715"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="SQu-Wt-h33">
             <objects>
-                <viewController id="Nr6-Be-VWQ" customClass="FeedViewController" customModule="AustinWeirdAutos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewController" id="Nr6-Be-VWQ" customClass="FeedViewController" customModule="AustinWeirdAutos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LiZ-Qx-foB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1206,6 +1221,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DJz-UH-AaZ"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="7us-kX-eEP" id="UL8-pI-5KX"/>
                     </connections>
@@ -1217,7 +1233,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1957.5999999999999" y="142.57871064467767"/>
+            <point key="canvasLocation" x="1932" y="3"/>
         </scene>
     </scenes>
     <resources>

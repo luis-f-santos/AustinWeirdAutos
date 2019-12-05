@@ -130,7 +130,9 @@ class SignInViewController: UIViewController {
             performSegue(withIdentifier: "toUserList", sender: nil)
         }
         else {
-            performSegue(withIdentifier: "toUserPostsVC", sender: id)
+            
+            performSegue(withIdentifier: "toCustomTabController", sender: id)
+            //performSegue(withIdentifier: "toUserPostsVC", sender: id)
         }
         
     }

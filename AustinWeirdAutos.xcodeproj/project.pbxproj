@@ -30,6 +30,7 @@
 		BFCB8F81236D8D2000627FE7 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB8F80236D8D2000627FE7 /* FeedViewController.swift */; };
 		BFCB8F83236D8E8E00627FE7 /* FeedPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB8F82236D8E8E00627FE7 /* FeedPostCell.swift */; };
 		BFE7CDDC235FC4FC00E384E1 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7CDDB235FC4FC00E384E1 /* DataService.swift */; };
+		BFF594122398937F0038BA19 /* CustomTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF594112398937F0038BA19 /* CustomTabController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		BFCB8F80236D8D2000627FE7 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		BFCB8F82236D8E8E00627FE7 /* FeedPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostCell.swift; sourceTree = "<group>"; };
 		BFE7CDDB235FC4FC00E384E1 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		BFF594112398937F0038BA19 /* CustomTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabController.swift; sourceTree = "<group>"; };
 		E6A351A12189DF97C690D37D /* Pods_AustinWeirdAutosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AustinWeirdAutosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -172,6 +174,7 @@
 				BF946DAE236D52B300997AC3 /* UserPostsViewController.swift */,
 				BFCB8F80236D8D2000627FE7 /* FeedViewController.swift */,
 				BF99729123981AF100C61F7D /* CreateNewUserModalViewController.swift */,
+				BFF594112398937F0038BA19 /* CustomTabController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				BF3223A92365739D00A98A5C /* Post.swift in Sources */,
 				BF946DB1236D534700997AC3 /* UserPostCell.swift in Sources */,
 				BF3223A52365370800A98A5C /* User.swift in Sources */,
+				BFF594122398937F0038BA19 /* CustomTabController.swift in Sources */,
 				BFB233B62350476300827391 /* SignInViewController.swift in Sources */,
 				BF99729223981AF100C61F7D /* CreateNewUserModalViewController.swift in Sources */,
 				BFB233B42350476300827391 /* AppDelegate.swift in Sources */,
