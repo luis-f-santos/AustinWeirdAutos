@@ -14,6 +14,7 @@ class UserPostsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyTableView: UIView!
     
     var posts = [Post]()
     var userID: String!
@@ -56,6 +57,15 @@ class UserPostsViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if posts.count == 0 {
+            tableView.backgroundView = emptyTableView
+            tableView.separatorStyle = .none
+
+        }else {
+            tableView.backgroundView = nil
+            tableView.separatorStyle = .singleLine
+        }
         return posts.count
     }
     
@@ -83,9 +93,6 @@ class UserPostsViewController: UIViewController, UITableViewDelegate, UITableVie
         print("LUIS: ID removed from keychain \(keychainResult)")
         try! Auth.auth().signOut()
         dismiss(animated: true, completion: nil)
-//        performSegue(withIdentifier: "goToSignIn", sender: nil)
-//
-//        performSegue(withIdentifier: "toFeedVC", sender: nil)
         
     }
     
