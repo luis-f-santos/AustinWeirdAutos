@@ -32,6 +32,7 @@
 		BFE7CDDC235FC4FC00E384E1 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7CDDB235FC4FC00E384E1 /* DataService.swift */; };
 		BFF594122398937F0038BA19 /* CustomTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF594112398937F0038BA19 /* CustomTabController.swift */; };
 		BFF59415239973130038BA19 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF59414239973130038BA19 /* Constants.swift */; };
+		BFF594172399C75D0038BA19 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF594162399C75D0038BA19 /* ContactViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		BFE7CDDB235FC4FC00E384E1 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		BFF594112398937F0038BA19 /* CustomTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabController.swift; sourceTree = "<group>"; };
 		BFF59414239973130038BA19 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BFF594162399C75D0038BA19 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		E6A351A12189DF97C690D37D /* Pods_AustinWeirdAutosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AustinWeirdAutosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -178,6 +180,7 @@
 				BFCB8F80236D8D2000627FE7 /* FeedViewController.swift */,
 				BF99729123981AF100C61F7D /* CreateNewUserModalViewController.swift */,
 				BFF594112398937F0038BA19 /* CustomTabController.swift */,
+				BFF594162399C75D0038BA19 /* ContactViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 			files = (
 				BF946DAD236BBD2000997AC3 /* CreatePostViewController.swift in Sources */,
 				BFCB8F83236D8E8E00627FE7 /* FeedPostCell.swift in Sources */,
+				BFF594172399C75D0038BA19 /* ContactViewController.swift in Sources */,
 				BF3223A7236572EC00A98A5C /* OwnerPostsListViewController.swift in Sources */,
 				BFE7CDDC235FC4FC00E384E1 /* DataService.swift in Sources */,
 				BF3223AB2366F1EB00A98A5C /* OwnerPostCell.swift in Sources */,

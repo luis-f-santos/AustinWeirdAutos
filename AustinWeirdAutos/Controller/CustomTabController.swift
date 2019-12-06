@@ -28,37 +28,37 @@ class CustomTabController: UITabBarController {
                 userViewController = myUserViewController
             }
             
-            
-            
         } else {
             
             if let myUserListController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserListViewController") as? UserListViewController {
                 
                 userViewController = myUserListController
             }
-            
         }
-        
-        
-        
+
         let userNavController = UINavigationController(rootViewController: userViewController)
-        userNavController.tabBarItem.title = "Home"
-        userNavController.tabBarItem.image = UIImage(named: "empty-heart")
+        //userNavController.tabBarItem.title = "Home"
+        userNavController.tabBarItem.image = UIImage(named: "home")
         userViewController.navigationController?.isNavigationBarHidden = true
         
         
         let feedController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedViewController")
 
         let feedNavController = UINavigationController(rootViewController: feedController)
-        feedNavController.tabBarItem.title = "Feed"
-        feedNavController.tabBarItem.image = UIImage(named: "empty-heart")
+        //feedNavController.tabBarItem.title = "Feed"
+        feedNavController.tabBarItem.image = UIImage(named: "feed")
         feedController.navigationController?.isNavigationBarHidden = true
         
+        let contactController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContactViewController")
+        let contactNavController = UINavigationController(rootViewController: contactController)
+        //contactNavController.tabBarItem.title = "Contact"
+        contactNavController.tabBarItem.image = UIImage(named: "contact")
+        contactController.navigationController?.isNavigationBarHidden = true
         
         
 
         
-        viewControllers = [userNavController, feedNavController]
+        viewControllers = [userNavController, feedNavController, contactNavController]
         
     }
 
