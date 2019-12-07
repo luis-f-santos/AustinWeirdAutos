@@ -32,28 +32,42 @@ class FeedPostCell: UITableViewCell {
         descriptionTextView.text = post.description
         numLikesLbl.text = "\(post.likes)"
         
+        //URLSession.shared.downloadTask(with: URL(string: post.imageURLs[0] )!, completionHandler: <#T##(URL?, URLResponse?, Error?) -> Void#>)
+        
         if post.imageURLs.count > 0 {
             
-            print("url to download: \(post.imageURLs[0])")
-            let ref = Storage.storage().reference(forURL: post.imageURLs[0])
-            
-            //maxSize = 2Mb
-            ref.getData(maxSize: 2 * 1024 * 1024, completion: { (data, error) in
+//            for img in post.imageURLs {
+//
+//
+//            }
+            if let img = FeedViewController.imageCache.object(forKey: post.imageURLs[0] as NSString) {
                 
-                if error != nil {
-                    print("LUIS: Unable to download image from FirebaseStorage")
-                } else {
+                print("Using imgage from Cache: \(post.imageURLs[0])")
+                self.postImage.image = img
+                
+            } else {
+            
+                print("url to download: \(post.imageURLs[0])")
+                let ref = Storage.storage().reference(forURL: post.imageURLs[0])
+            
+                //maxSize = 2Mb
+                ref.getData(maxSize: 2 * 1024 * 1024, completion: { (data, error) in
                     
-                    print("LUIS: Successfull Downloaded from firebase storage")
-                    
-                    if let imgData = data {
-                        if let img = UIImage(data: imgData){
-                            self.postImage.image = img
-                            // FeedViewController.imageCache.setObject(img, forKey: post.imageUrl as NSString)
+                    if error != nil {
+                        print("LUIS: Unable to download image from FirebaseStorage")
+                    } else {
+                        
+                        print("LUIS: Successfull Downloaded from firebase storage")
+                        
+                        if let imgData = data {
+                            if let img = UIImage(data: imgData){
+                                self.postImage.image = img
+                                FeedViewController.imageCache.setObject(img, forKey: post.imageURLs[0] as NSString)
+                            }
                         }
                     }
-                }
-            })
+                })
+            }
         }
         
     }
