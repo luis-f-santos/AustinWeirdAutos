@@ -9,24 +9,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AustinWeirdAutos/View/OwnerPostCell.swift"
-            timestampString = "594371480.026413"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "configureOwnerPostCell(post:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "AustinWeirdAutos/Controller/UserPostsViewController.swift"
-            timestampString = "597361015.740517"
+            timestampString = "597401149.8407021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -42,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AustinWeirdAutos/Controller/SignInViewController.swift"
-            timestampString = "597287829.407603"
+            timestampString = "597398387.151322"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "82"
@@ -58,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AustinWeirdAutos/Controller/SignInViewController.swift"
-            timestampString = "597287829.407771"
+            timestampString = "597398387.151379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
@@ -74,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AustinWeirdAutos/Controller/SignInViewController.swift"
-            timestampString = "597287829.4078439"
+            timestampString = "597398387.15143"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
@@ -96,6 +80,22 @@
             startingLineNumber = "55"
             endingLineNumber = "55"
             landmarkName = "login(email:password:onComplete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AustinWeirdAutos/View/FeedPostCell.swift"
+            timestampString = "597401149.840969"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "configureFeedCell(post:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

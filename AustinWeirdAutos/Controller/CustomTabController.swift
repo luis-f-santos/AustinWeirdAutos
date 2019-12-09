@@ -17,6 +17,7 @@ class CustomTabController: UITabBarController {
         super.viewDidLoad()
         
         //let feedController = FeedViewController()
+        self.tabBar.tintColor = PRIMARY_UICOLOR
         
         var userViewController = UIViewController()
         

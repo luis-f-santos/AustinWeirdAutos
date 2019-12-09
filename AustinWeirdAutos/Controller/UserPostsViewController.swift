@@ -58,6 +58,7 @@ class UserPostsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        print("LUIS: numberofRowsInSection ran")
         if posts.count == 0 {
             tableView.backgroundView = emptyTableView
             tableView.separatorStyle = .none
@@ -84,6 +85,7 @@ class UserPostsViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         
     }
 

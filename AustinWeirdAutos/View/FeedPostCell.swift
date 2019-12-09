@@ -23,23 +23,24 @@ class FeedPostCell: UITableViewCell {
     
     var post: Post!
     
+    var scrollView: UIScrollView!
+    
     
     func configureFeedCell(post: Post) {
+        
+        scrollView.add
         
         self.post =  post
         vehicleLbl.text  = "\(post.year) \(post.make) \(post.model)"
         dateCreatedLbl.text = post.dateCreated
         descriptionTextView.text = post.description
         numLikesLbl.text = "\(post.likes)"
-        
+        postImage.image = UIImage (named: "red_tesla")  //Default image
+     
         //URLSession.shared.downloadTask(with: URL(string: post.imageURLs[0] )!, completionHandler: <#T##(URL?, URLResponse?, Error?) -> Void#>)
         
         if post.imageURLs.count > 0 {
             
-//            for img in post.imageURLs {
-//
-//
-//            }
             if let img = FeedViewController.imageCache.object(forKey: post.imageURLs[0] as NSString) {
                 
                 print("Using imgage from Cache: \(post.imageURLs[0])")

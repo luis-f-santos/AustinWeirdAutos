@@ -16,6 +16,8 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBOutlet weak var userNameLbl: UILabel!
     
+    var currentCellinEdit: Int?
+    var editingIndexPath: IndexPath?
     
     var posts = [Post]()
     var user: User!
@@ -74,6 +76,9 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
         if let cell = tableView.dequeueReusableCell(withIdentifier: "OwnerPostCell") as? OwnerPostCell {
             
             cell.configureOwnerPostCell(post: post)
+            cell.allowCellEditing = allowCellEditing
+            cell.clearEditingLock = clearEditingIndexPath
+            //cell.editLbl.tag = indexPath.row
             return cell
             
         } else {
@@ -85,13 +90,60 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //var selectedUser = user
         if let cell = tableView.dequeueReusableCell(withIdentifier: "OwnerPostCell") as? OwnerPostCell {
             
             cell.isSelected = false
-            
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if(indexPath == editingIndexPath){
+            
+            editingIndexPath = nil
+            if let currentCell = tableView.cellForRow(at: indexPath) as? OwnerPostCell {
+                
+                currentCell.resetCellLabelsUI()
+            }
+            
+        }
+    }
+    
+    func clearEditingIndexPath() -> () {
+        editingIndexPath = nil
+    }
+    
+    func allowCellEditing(_ editLbl: UILabel) -> (Bool) {
+        
+        if let editingCellIndexPath = editingIndexPath {
+            
+            if let currentCell = tableView.cellForRow(at: editingCellIndexPath) as? OwnerPostCell {
+                let midX = currentCell.center.x
+                let midY = currentCell.center.y
+                
+                let animation = CABasicAnimation(keyPath: "position")
+                animation.duration = 0.06
+                animation.repeatCount = 4
+                animation.autoreverses = true
+                animation.fromValue = CGPoint(x: midX - 10, y: midY)
+                animation.toValue = CGPoint(x: midX + 10, y: midY)
+                currentCell.layer.add(animation, forKey: "position")
+                
+            }
+            
+            return false
+            
+        }else { //currentCell is nil so assign the new editing Index
+            
+            let point = tableView.convert(editLbl.bounds.origin, from: editLbl)
+            if let indexPath = tableView.indexPathForRow(at: point){
+                editingIndexPath = indexPath
+            }
+            
+            return true
+            
+        }
         
     }
     

@@ -15,4 +15,5 @@ let BASE_DB_URL = "https://austin-weird-autos.firebaseio.com/"
 let EMPTY_LOGIN_TEXT = "Insert an email and password to login"
 let COMPANY_NAME = "Austin Weird Autos"
 let COMPANY_ADDRESS = "9706 Middle Fiskville Dr. Austin, TX 78753"
+let PRIMARY_UICOLOR = UIColor(red: 190/255, green: 25/255, blue: 35/255, alpha: 1.0)
 

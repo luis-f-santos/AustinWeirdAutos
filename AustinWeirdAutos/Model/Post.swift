@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Firebase
+
 
 class Post {
     
@@ -22,6 +24,8 @@ class Post {
     private var _postID: String!
     private var _userID: String!
     private var _dateCreated: String!
+    
+    private var _postRef: DatabaseReference!
     
     
     var year: String {
@@ -110,10 +114,29 @@ class Post {
             }
         }
         
+        _postRef = DataService.ds.REF_POSTS.child(_postID)
         
+  
+    }
+
+    
+    func saveNewDescription(newDescription: String){
         
+        _description = newDescription
+        _postRef.child("description").setValue(_description)
     }
     
+    func savePublicStatus(status: Bool){
+        
+        _isPublic = status
+        _postRef.child("isPublic").setValue(_isPublic)
+    }
+    
+    func saveProgressStatus(status: Bool){
+        
+        _isComplete = status
+        _postRef.child("isComplete").setValue(_isComplete)
+    }
     
     
 }
