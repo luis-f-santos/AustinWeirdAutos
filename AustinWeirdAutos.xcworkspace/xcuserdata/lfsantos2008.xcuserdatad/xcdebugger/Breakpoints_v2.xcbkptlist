@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AustinWeirdAutos/Controller/UserPostsViewController.swift"
-            timestampString = "597401149.8407021"
+            timestampString = "597595689.792931"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AustinWeirdAutos/View/FeedPostCell.swift"
-            timestampString = "597401149.840969"
+            timestampString = "597651306.748054"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "configureFeedCell(post:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -1281,6 +1281,20 @@
                                                         <constraint firstAttribute="height" constant="300" id="vAO-DH-C2J"/>
                                                     </constraints>
                                                 </imageView>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="VeU-MF-k09">
+                                                    <rect key="frame" x="0.0" y="152" width="375" height="300"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.51444777397260277" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="300" id="q6d-3L-s8n"/>
+                                                    </constraints>
+                                                </scrollView>
+                                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="8hn-AW-VKv">
+                                                    <rect key="frame" x="168" y="399.5" width="39" height="37"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="37" id="1mC-DI-y1t"/>
+                                                        <constraint firstAttribute="width" constant="39" id="vn1-CT-cqo"/>
+                                                    </constraints>
+                                                </pageControl>
                                                 <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-heart" translatesAutoresizingMaskIntoConstraints="NO" id="iwa-5i-vla">
                                                     <rect key="frame" x="8" y="457" width="38" height="36"/>
                                                     <constraints>
@@ -1312,13 +1326,16 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="VeU-MF-k09" firstAttribute="top" secondItem="7g8-vG-X8I" secondAttribute="bottom" constant="8" id="5FU-60-NfC"/>
                                                 <constraint firstItem="iwa-5i-vla" firstAttribute="leading" secondItem="ZMW-vf-BoW" secondAttribute="leading" constant="8" id="7Jf-hr-pIO"/>
                                                 <constraint firstItem="hYt-lD-WWp" firstAttribute="top" secondItem="hCN-6T-ij7" secondAttribute="bottom" constant="2" id="ArS-TD-Q6v"/>
                                                 <constraint firstItem="jzP-L5-w2f" firstAttribute="top" secondItem="7yb-65-Bl6" secondAttribute="bottom" constant="8" id="CZU-fy-CCn"/>
                                                 <constraint firstItem="K0l-qq-JkQ" firstAttribute="leading" secondItem="ZMW-vf-BoW" secondAttribute="leadingMargin" constant="4" id="DHU-Oa-YcG"/>
+                                                <constraint firstItem="8hn-AW-VKv" firstAttribute="centerX" secondItem="ZMW-vf-BoW" secondAttribute="centerX" id="HIz-on-6u3"/>
                                                 <constraint firstItem="7yb-65-Bl6" firstAttribute="leading" secondItem="ZMW-vf-BoW" secondAttribute="leading" id="KjR-8Q-4xj"/>
                                                 <constraint firstItem="7g8-vG-X8I" firstAttribute="leading" secondItem="ZMW-vf-BoW" secondAttribute="leadingMargin" constant="4" id="O8F-8p-IXa"/>
                                                 <constraint firstItem="hCN-6T-ij7" firstAttribute="leading" secondItem="K0l-qq-JkQ" secondAttribute="trailing" constant="8" id="XKl-CQ-3I6"/>
+                                                <constraint firstItem="VeU-MF-k09" firstAttribute="leading" secondItem="ZMW-vf-BoW" secondAttribute="leading" id="XTK-N4-mah"/>
                                                 <constraint firstItem="oNM-lQ-eVO" firstAttribute="trailing" secondItem="ZMW-vf-BoW" secondAttribute="trailingMargin" id="eQp-hX-rO9"/>
                                                 <constraint firstItem="oNM-lQ-eVO" firstAttribute="leading" secondItem="jzP-L5-w2f" secondAttribute="trailing" constant="6" id="g06-Lj-8e9"/>
                                                 <constraint firstAttribute="bottom" secondItem="7yb-65-Bl6" secondAttribute="bottom" constant="47.5" id="h9d-q8-sc6"/>
@@ -1331,6 +1348,9 @@
                                                 <constraint firstItem="hYt-lD-WWp" firstAttribute="leading" secondItem="K0l-qq-JkQ" secondAttribute="trailing" constant="8" id="sVH-6Z-A82"/>
                                                 <constraint firstAttribute="trailing" secondItem="7yb-65-Bl6" secondAttribute="trailing" id="vX8-9x-V2q"/>
                                                 <constraint firstItem="7g8-vG-X8I" firstAttribute="top" secondItem="hYt-lD-WWp" secondAttribute="bottom" constant="6" id="wsn-QQ-Wo2"/>
+                                                <constraint firstItem="iwa-5i-vla" firstAttribute="top" secondItem="VeU-MF-k09" secondAttribute="bottom" constant="5" id="x1F-Jx-9VS"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="8hn-AW-VKv" secondAttribute="bottom" constant="55" id="yv3-Ei-X7o"/>
+                                                <constraint firstAttribute="trailing" secondItem="VeU-MF-k09" secondAttribute="trailing" id="zPK-Ht-zCK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1338,7 +1358,9 @@
                                             <outlet property="descriptionTextView" destination="7g8-vG-X8I" id="bge-KM-RfB"/>
                                             <outlet property="makeImage" destination="K0l-qq-JkQ" id="yze-4U-ino"/>
                                             <outlet property="numLikesLbl" destination="oNM-lQ-eVO" id="zgQ-0l-Qe8"/>
+                                            <outlet property="pageControl" destination="8hn-AW-VKv" id="L5m-YJ-95Q"/>
                                             <outlet property="postImage" destination="7yb-65-Bl6" id="sUc-wU-mCl"/>
+                                            <outlet property="scrollView" destination="VeU-MF-k09" id="3KR-c7-aPT"/>
                                             <outlet property="vehicleLbl" destination="hCN-6T-ij7" id="AOq-5N-GBA"/>
                                         </connections>
                                     </tableViewCell>
@@ -1369,7 +1391,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1932" y="3"/>
+            <point key="canvasLocation" x="1932" y="2.2488755622188905"/>
         </scene>
     </scenes>
     <resources>
