@@ -613,15 +613,21 @@
                                     </label>
                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="rvj-Gf-9cU">
                                         <rect key="frame" x="14" y="31" width="38" height="36"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="38" id="SO1-Vb-13W"/>
                                             <constraint firstAttribute="height" constant="36" id="vGV-N9-QUL"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="8nA-RZ-neJ" appends="YES" id="BHT-8r-7zS"/>
                                         </connections>
                                     </imageView>
-                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circled-plus" translatesAutoresizingMaskIntoConstraints="NO" id="sT3-V6-2TN">
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-car" translatesAutoresizingMaskIntoConstraints="NO" id="sT3-V6-2TN">
                                         <rect key="frame" x="323" y="31" width="38" height="36"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
@@ -629,6 +635,11 @@
                                             <constraint firstAttribute="width" constant="38" id="UTh-65-q9c"/>
                                             <constraint firstAttribute="height" constant="36" id="jBT-s4-CDo"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="XHJ-qe-vjF" appends="YES" id="jiS-qZ-wuJ"/>
                                         </connections>
@@ -1430,7 +1441,8 @@
     </scenes>
     <resources>
         <image name="AustinWierdAutosLogo" width="512" height="291"/>
-        <image name="back" width="100" height="67"/>
+        <image name="add-car" width="200" height="200"/>
+        <image name="back" width="64" height="64"/>
         <image name="circled-plus" width="256" height="256"/>
         <image name="default-avatar" width="512" height="512"/>
         <image name="empty-heart" width="70" height="70"/>

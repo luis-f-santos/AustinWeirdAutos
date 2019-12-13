@@ -75,8 +75,12 @@ class UserListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        var selectedUser: User!
+        if let cell = tableView.cellForRow(at: indexPath) as? UserCell {
+            
+            cell.setSelected(false, animated: false)
+        }
         
+        var selectedUser: User!
         selectedUser = users[indexPath.row]
         performSegue(withIdentifier: "toOwnerPostsList", sender: selectedUser)
         
