@@ -22,12 +22,15 @@ class OwnerPostCell: UITableViewCell {
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var publicLbl: UILabel!
     @IBOutlet weak var progressLbl: UILabel!
+    @IBOutlet weak var addImageCircleImg: UIImageView!
     
+    @IBOutlet weak var fadedView: UIView!
     var publicState = false
     var completeState = false
     
     var allowCellEditing: ((_ editLbl: UILabel) -> (Bool))?
     var clearEditingLock: (() -> ())?
+    var addNewImage: (() -> ())?
     
     var post: Post!
 
@@ -108,10 +111,19 @@ class OwnerPostCell: UITableViewCell {
         
         saveLbl.isHidden = false
         saveLbl.isUserInteractionEnabled = true
+        saveLbl.backgroundColor = UIColor.green
         
         descriptionText.isEditable = true
         descriptionText.layer.borderWidth = 1.0
         descriptionText.layer.borderColor = UIColor.red.cgColor
+        descriptionText.backgroundColor = UIColor.white
+        
+        addImageCircleImg.isHidden = false
+        addImageCircleImg.isUserInteractionEnabled = true
+        
+        fadedView.isHidden = false
+        fadedView.backgroundColor = UIColor(red: 22, green: 22, blue: 22, alpha: 1)
+        fadedView.alpha = 0.65
         
     }
     
@@ -162,6 +174,13 @@ class OwnerPostCell: UITableViewCell {
         
     }
     
+    @objc func addNewImageTapped (sender: UITapGestureRecognizer) {
+        
+        // Open Gallery to choose Images
+        addNewImage?()
+//        yearLbl.text = "2222"
+    }
+    
     func setupTapGestures(){
         
         let editTap = UITapGestureRecognizer(target: self, action: #selector(editLblTapped))
@@ -181,9 +200,14 @@ class OwnerPostCell: UITableViewCell {
         completeTap.numberOfTapsRequired = 1
         progressLbl.addGestureRecognizer(completeTap)
         
+        let addImageTap = UITapGestureRecognizer(target: self, action: #selector(addNewImageTapped))
+        addImageTap.numberOfTapsRequired = 1
+        addImageCircleImg.addGestureRecognizer(addImageTap)
+        
         
     }
     
+
     func resetCellLabelsUI(){
         
         publicLbl.layer.borderWidth = 0
@@ -201,6 +225,11 @@ class OwnerPostCell: UITableViewCell {
         
         saveLbl.isUserInteractionEnabled = false
         saveLbl.isHidden = true
+        
+        addImageCircleImg.isHidden = true
+        addImageCircleImg.isUserInteractionEnabled = false
+        
+        fadedView.isHidden = true
         
         
     }

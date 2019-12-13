@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     
     @IBOutlet weak var tableView: UITableView!
@@ -18,6 +18,11 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
     
     var currentCellinEdit: Int?
     var editingIndexPath: IndexPath?
+    
+    
+    var imagePicker: UIImagePickerController!
+    var addedImage = UIImageView()
+    var currentCell = OwnerPostCell()
     
     var posts = [Post]()
     var user: User!
@@ -28,6 +33,11 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
 
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.allowsSelection = false
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        
         if let userName = user?.firstName {
             userNameLbl.text = userName
         }
@@ -78,7 +88,7 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
             cell.configureOwnerPostCell(post: post)
             cell.allowCellEditing = allowCellEditing
             cell.clearEditingLock = clearEditingIndexPath
-            //cell.editLbl.tag = indexPath.row
+            cell.addNewImage = addNewImagetoPost
             return cell
             
         } else {
@@ -90,9 +100,18 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "OwnerPostCell") as? OwnerPostCell {
+//        if let cell = tableView.dequeueReusableCell(withIdentifier: "OwnerPostCell") as? OwnerPostCell {
+//
+//            if let abc  = cell.modelLbl.text {
+//
+//                self.userNameLbl.text = abc
+//            }
+//        }
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? OwnerPostCell {
             
-            cell.isSelected = false
+            cell.setSelected(false, animated: false)
+            
         }
         
     }
@@ -110,8 +129,30 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let img = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+//            userAddedImage = true
+            addedImage.image = img
+        }
+        
+        imagePicker.dismiss(animated: true, completion: nil )
+        
+    }
+    
     func clearEditingIndexPath() -> () {
-        editingIndexPath = nil
+        
+        if let editingCellIndexPath = editingIndexPath {
+            
+            if let myCurrentCell = tableView.cellForRow(at: editingCellIndexPath) as? OwnerPostCell {
+                
+                
+                myCurrentCell.setSelected(false, animated: true)
+                editingIndexPath = nil
+            }
+        }
+        
     }
     
     func allowCellEditing(_ editLbl: UILabel) -> (Bool) {
@@ -129,20 +170,39 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
                 animation.fromValue = CGPoint(x: midX - 10, y: midY)
                 animation.toValue = CGPoint(x: midX + 10, y: midY)
                 currentCell.layer.add(animation, forKey: "position")
-                
             }
-            
             return false
             
         }else { //currentCell is nil so assign the new editing Index
             
             let point = tableView.convert(editLbl.bounds.origin, from: editLbl)
             if let indexPath = tableView.indexPathForRow(at: point){
+                
                 editingIndexPath = indexPath
+                
+                if let currentCell = tableView.cellForRow(at: indexPath) as? OwnerPostCell {
+                    
+//                    currentCell.backgroundColor = UIColor.lightGray
+                    currentCell.setSelected(true, animated: true)
+                }
             }
             
-            return true
             
+            return true
+        }
+        
+    }
+    
+    func addNewImagetoPost() -> () {
+        
+        if let editingIndexPath = editingIndexPath {
+            
+            if let myCurrentCell = tableView.cellForRow(at: editingIndexPath) as? OwnerPostCell {
+                
+                //currentCell = myCurrentCell
+                addedImage = myCurrentCell.previewImage
+                present(imagePicker, animated: true, completion: nil)
+            }
         }
         
     }
