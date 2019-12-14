@@ -21,6 +21,7 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
     
     
     var imagePicker: UIImagePickerController!
+    var userAddedImage = false
     var addedImage = UIImageView()
     var currentCell = OwnerPostCell()
     
@@ -100,14 +101,6 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: "OwnerPostCell") as? OwnerPostCell {
-//
-//            if let abc  = cell.modelLbl.text {
-//
-//                self.userNameLbl.text = abc
-//            }
-//        }
-        
         if let cell = tableView.cellForRow(at: indexPath) as? OwnerPostCell {
             
             cell.setSelected(false, animated: false)
@@ -122,10 +115,8 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
             
             editingIndexPath = nil
             if let currentCell = tableView.cellForRow(at: indexPath) as? OwnerPostCell {
-                
                 currentCell.resetCellLabelsUI()
             }
-            
         }
     }
     
@@ -133,7 +124,7 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
         
         if let img = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
-//            userAddedImage = true
+            userAddedImage = true
             addedImage.image = img
         }
         
@@ -150,8 +141,52 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
                 
                 myCurrentCell.setSelected(false, animated: true)
                 editingIndexPath = nil
+            
+            
+                guard let image = addedImage.image, userAddedImage == true else {
+                    
+                    print("LUIS: New Image has not been added")
+                    return
+                }
+            
+                if let imageData = UIImageJPEGRepresentation(image, 0.2) {
+                    
+                    let imageUid = NSUUID().uuidString
+                    let metadata = StorageMetadata()
+                    metadata.contentType = "image/jpeg"
+                    self.showSpinner()
+                    
+                    DataService.ds.REF_WEIRD_IMAGES.child(imageUid).putData(imageData, metadata: metadata, completion: { (metadata, error) in
+                        
+                        if error != nil {
+                            self.removeSpinner()
+                            print("LUIS: Unable to upload image to firebase")
+                        } else {
+                            
+                            print("LUIS: Successfully uploaded image to firebase storage")
+                            print("LUIS: Storage Base URL = \(DataService.ds.REF_WEIRD_IMAGES)")
+                            self.removeSpinner()
+                            
+                            if let name = metadata?.name {
+                                print("LUIS: metadata.name = \(name)")
+                                let forwardSlash = "/"
+                                let url = "\(DataService.ds.REF_WEIRD_IMAGES)" + forwardSlash + name
+                                myCurrentCell.post.saveNewImageURL(imageUrl: url, imageUID: name)
+                                
+                            }
+                        }
+                    })
+                    
+                    
+                }
             }
+            
+            
+            
+            
         }
+        
+        
         
     }
     

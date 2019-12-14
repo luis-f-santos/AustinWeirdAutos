@@ -98,9 +98,12 @@ class CreatePostViewController: UIViewController, UIPickerViewDelegate, UIPicker
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpeg"
             
+            self.showSpinner()
+            
             DataService.ds.REF_WEIRD_IMAGES.child(imageUid).putData(imageData, metadata: metadata, completion: { (metadata, error) in
                 
                 if error != nil {
+                    self.removeSpinner()
                     print("LUIS: Unable to upload image to firebase")
                 } else {
                     
@@ -143,6 +146,8 @@ class CreatePostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
         firebasePost.setValue(post)
+        
+        self.removeSpinner()
         
         dismiss(animated: true, completion: nil )
         

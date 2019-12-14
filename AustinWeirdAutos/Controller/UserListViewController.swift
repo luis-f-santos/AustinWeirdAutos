@@ -23,8 +23,7 @@ class UserListViewController: UIViewController, UITableViewDelegate, UITableView
 
         tableView.dataSource = self
         tableView.delegate = self
-        
-        
+            
         
         DataService.ds.REF_USERS.observe(.value, with: { (snapshot) in
             

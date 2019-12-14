@@ -21,6 +21,7 @@ class Post {
     private var _isPublic: Bool!
     private var _likes: Int!
     private var _imageURLs: [String]!
+    private var _imageURLDict: Dictionary<String, AnyObject>!
     private var _postID: String!
     private var _userID: String!
     private var _dateCreated: String!
@@ -74,6 +75,8 @@ class Post {
         
         _imageURLs = [String]()
         _postID = postKey
+        _postRef = DataService.ds.REF_POSTS.child(_postID)
+        
         
         if let dateCreated = postData["dateCreated"] as? String{
             _dateCreated = dateCreated
@@ -109,14 +112,12 @@ class Post {
         }
         if let imageURLs = postData["imageURLs"] as? Dictionary<String, AnyObject> {
             
+            _imageURLDict = imageURLs
             for url in imageURLs {
                 _imageURLs.append(url.value as! String)
             }
         }
-        
-        _postRef = DataService.ds.REF_POSTS.child(_postID)
-        
-  
+
     }
 
     
@@ -136,6 +137,12 @@ class Post {
         
         _isComplete = status
         _postRef.child("isComplete").setValue(_isComplete)
+    }
+    
+    func saveNewImageURL(imageUrl: String, imageUID: String) {
+        
+        _imageURLDict[imageUID] = imageUrl as AnyObject
+        _postRef.child("imageURLs").setValue(_imageURLDict)
     }
     
     

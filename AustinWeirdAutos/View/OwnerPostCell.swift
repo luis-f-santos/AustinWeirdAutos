@@ -23,8 +23,8 @@ class OwnerPostCell: UITableViewCell {
     @IBOutlet weak var publicLbl: UILabel!
     @IBOutlet weak var progressLbl: UILabel!
     @IBOutlet weak var addImageCircleImg: UIImageView!
-    
     @IBOutlet weak var fadedView: UIView!
+    
     var publicState = false
     var completeState = false
     
@@ -66,8 +66,11 @@ class OwnerPostCell: UITableViewCell {
         //Now only checking if the imageURLs array even exists
         if post.imageURLs.count > 0 {
             
-            print("url to download: \(post.imageURLs[0])")
-            let ref = Storage.storage().reference(forURL: post.imageURLs[0])
+            //use last image in array as the preview image
+            let previewImageIndex = post.imageURLs.count - 1
+            
+            print("url to download: \(post.imageURLs[previewImageIndex])")
+            let ref = Storage.storage().reference(forURL: post.imageURLs[previewImageIndex])
             
             //maxSize = 1Mb
             ref.getData(maxSize: 1 * 1024 * 1024, completion: { (data, error) in
