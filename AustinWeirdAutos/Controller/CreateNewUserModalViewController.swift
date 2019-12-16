@@ -61,7 +61,7 @@ class CreateNewUserModalViewController: UIViewController {
             passwordLabel.text = "Wrong Password"
             passwordLabel.textColor = UIColor.red
         }
-        else { //}(passwordTextView.text == originalPassword){
+        else {
         
             let userData: Dictionary<String, AnyObject> = [
                 "firstName": firstNameTextView.text! as AnyObject,

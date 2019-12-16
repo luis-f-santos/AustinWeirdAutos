@@ -43,8 +43,6 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
     
     func configureFeedCell(post: Post) {
         
-        
-        
         self.post =  post
         vehicleLbl.text  = "\(post.year) \(post.make) \(post.model)"
         dateCreatedLbl.text = post.dateCreated
@@ -107,8 +105,7 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
                     //self.postImage.image = img
                     
                 } else {
-                
-                    print("url to download: \(post.imageURLs[0])")
+                    print("url to download: \(post.imageURLs[index])")
                     let ref = Storage.storage().reference(forURL: post.imageURLs[index])
                 
                     //maxSize = 2Mb

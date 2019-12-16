@@ -1013,7 +1013,7 @@
         <!--User Posts View Controller-->
         <scene sceneID="Rll-yH-dIv">
             <objects>
-                <viewController storyboardIdentifier="UserPostsViewController" id="QSw-9E-HSq" customClass="UserPostsViewController" customModule="AustinWeirdAutos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserPostsViewController" definesPresentationContext="YES" id="QSw-9E-HSq" customClass="UserPostsViewController" customModule="AustinWeirdAutos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="erf-Cv-8wL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1069,11 +1069,9 @@
                                     <constraint firstItem="STO-im-sE7" firstAttribute="centerY" secondItem="1W8-yb-uMF" secondAttribute="centerY" id="NrT-Tw-I1y"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rnh-ur-Wee">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rnh-ur-Wee">
                                 <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserPostCell" rowHeight="200" id="Dzc-xc-XAb" customClass="UserPostCell" customModule="AustinWeirdAutos" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
@@ -1218,6 +1216,7 @@
                     <connections>
                         <outlet property="emptyTableView" destination="1W8-yb-uMF" id="oBU-gr-u7f"/>
                         <outlet property="tableView" destination="Rnh-ur-Wee" id="67w-xi-LIL"/>
+                        <segue destination="s7v-gd-biA" kind="showDetail" identifier="toUserPostPopover" id="5US-Cn-YHn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJR-Wd-QVF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1233,6 +1232,132 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1932" y="-715.59220389805103"/>
+        </scene>
+        <!--User Post Popover View Controller-->
+        <scene sceneID="27U-yS-arp">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="s7v-gd-biA" customClass="UserPostPopoverViewController" customModule="AustinWeirdAutos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6ZX-Ps-UDh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYn-n6-rlD">
+                                <rect key="frame" x="0.0" y="137" width="375" height="530"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gP-dS-VhO">
+                                        <rect key="frame" x="20" y="28" width="335" height="250"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_tesla" translatesAutoresizingMaskIntoConstraints="NO" id="HJn-T3-GzW">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="250"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="NKI-dE-VJk"/>
+                                                </constraints>
+                                            </imageView>
+                                            <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="rn2-pC-KkH">
+                                                <rect key="frame" x="146" y="205" width="42" height="37"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="42" id="yJJ-5G-aLF"/>
+                                                </constraints>
+                                            </pageControl>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="MF7-Tj-voV"/>
+                                            <constraint firstItem="HJn-T3-GzW" firstAttribute="leading" secondItem="7gP-dS-VhO" secondAttribute="leading" id="MKo-qi-31P"/>
+                                            <constraint firstItem="rn2-pC-KkH" firstAttribute="centerX" secondItem="7gP-dS-VhO" secondAttribute="centerX" id="VX5-9B-vDB"/>
+                                            <constraint firstItem="HJn-T3-GzW" firstAttribute="top" secondItem="7gP-dS-VhO" secondAttribute="top" id="kxh-nr-hiA"/>
+                                            <constraint firstAttribute="trailing" secondItem="HJn-T3-GzW" secondAttribute="trailing" id="loN-Zm-t8H"/>
+                                            <constraint firstAttribute="bottom" secondItem="HJn-T3-GzW" secondAttribute="bottom" id="nCM-fl-tRh"/>
+                                            <constraint firstAttribute="bottom" secondItem="rn2-pC-KkH" secondAttribute="bottom" id="yLJ-UE-3LP"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just pushed vehcile into garage to start working on it. Thanks!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOJ-cP-HKA">
+                                        <rect key="frame" x="38" y="308" width="300" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="AiW-V2-EzH"/>
+                                            <constraint firstAttribute="height" constant="100" id="zig-Qd-xj9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you like to share your car's progress to our feed?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEo-52-ZEb">
+                                        <rect key="frame" x="77" y="416" width="220" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="220" id="Hh0-uJ-MCX"/>
+                                            <constraint firstAttribute="height" constant="44" id="rSP-hD-0kk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dJ-UV-AAk">
+                                        <rect key="frame" x="77" y="475" width="220" height="30"/>
+                                        <color key="backgroundColor" red="0.74552059169999996" green="0.097342051570000004" blue="0.1379183531" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="220" id="BJo-do-K0C"/>
+                                            <constraint firstAttribute="height" constant="30" id="a7o-TU-4gQ"/>
+                                        </constraints>
+                                        <state key="normal" title="Share">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2OW-vM-uQb">
+                                        <rect key="frame" x="178" y="314" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="IEo-52-ZEb" firstAttribute="centerX" secondItem="EYn-n6-rlD" secondAttribute="centerX" id="8rj-EH-OcO"/>
+                                    <constraint firstItem="5dJ-UV-AAk" firstAttribute="centerX" secondItem="EYn-n6-rlD" secondAttribute="centerX" id="Bm1-Gz-3he"/>
+                                    <constraint firstItem="7gP-dS-VhO" firstAttribute="leading" secondItem="EYn-n6-rlD" secondAttribute="leading" constant="20" id="CUA-B6-ZMC"/>
+                                    <constraint firstAttribute="bottom" secondItem="5dJ-UV-AAk" secondAttribute="bottom" constant="25" id="DSo-9a-6NP"/>
+                                    <constraint firstItem="7gP-dS-VhO" firstAttribute="top" secondItem="EYn-n6-rlD" secondAttribute="top" constant="28" id="GAL-lc-BqC"/>
+                                    <constraint firstAttribute="trailing" secondItem="7gP-dS-VhO" secondAttribute="trailing" constant="20" id="M91-iX-x5T"/>
+                                    <constraint firstItem="2OW-vM-uQb" firstAttribute="top" secondItem="7gP-dS-VhO" secondAttribute="bottom" constant="36" id="XKJ-Hm-Qwv"/>
+                                    <constraint firstItem="5dJ-UV-AAk" firstAttribute="top" secondItem="IEo-52-ZEb" secondAttribute="bottom" constant="15" id="adZ-Pq-PIV"/>
+                                    <constraint firstItem="MOJ-cP-HKA" firstAttribute="centerX" secondItem="EYn-n6-rlD" secondAttribute="centerX" id="iZg-dv-d0f"/>
+                                    <constraint firstItem="2OW-vM-uQb" firstAttribute="centerX" secondItem="EYn-n6-rlD" secondAttribute="centerX" id="pgt-3W-vU9"/>
+                                    <constraint firstItem="MOJ-cP-HKA" firstAttribute="top" secondItem="7gP-dS-VhO" secondAttribute="bottom" constant="30" id="vLh-xr-0qr"/>
+                                    <constraint firstItem="IEo-52-ZEb" firstAttribute="top" secondItem="MOJ-cP-HKA" secondAttribute="bottom" constant="8" id="xCJ-NI-zoW"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLx-ii-DW1">
+                                <rect key="frame" x="144" y="97" width="86" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="5F4-4q-NXM"/>
+                                    <constraint firstAttribute="width" constant="86" id="c7g-mi-QKq"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="down-arrow"/>
+                                <connections>
+                                    <action selector="touchedBackButton:" destination="s7v-gd-biA" eventType="touchUpInside" id="Tlk-yY-Qdv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="0.5662457191780822" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nLx-ii-DW1" firstAttribute="centerX" secondItem="6ZX-Ps-UDh" secondAttribute="centerX" id="DhR-Qa-OnV"/>
+                            <constraint firstItem="EYn-n6-rlD" firstAttribute="leading" secondItem="nVG-aq-TXj" secondAttribute="leading" id="Dyc-Og-uIa"/>
+                            <constraint firstItem="EYn-n6-rlD" firstAttribute="bottom" secondItem="nVG-aq-TXj" secondAttribute="bottom" id="EhR-2P-tHf"/>
+                            <constraint firstItem="EYn-n6-rlD" firstAttribute="top" secondItem="nLx-ii-DW1" secondAttribute="bottom" constant="8" id="LxH-9w-v31"/>
+                            <constraint firstItem="EYn-n6-rlD" firstAttribute="trailing" secondItem="nVG-aq-TXj" secondAttribute="trailing" id="nNU-8n-XKe"/>
+                            <constraint firstItem="EYn-n6-rlD" firstAttribute="top" secondItem="nVG-aq-TXj" secondAttribute="top" constant="117" id="oZS-nS-KXc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nVG-aq-TXj"/>
+                    </view>
+                    <connections>
+                        <outlet property="askUserToShareLbl" destination="IEo-52-ZEb" id="6pX-iO-9wR"/>
+                        <outlet property="initialImageView" destination="HJn-T3-GzW" id="w3n-VB-b6U"/>
+                        <outlet property="pageControl" destination="rn2-pC-KkH" id="822-yQ-d4G"/>
+                        <outlet property="postDescriptionLbl" destination="MOJ-cP-HKA" id="cPd-hI-h2Z"/>
+                        <outlet property="shareButton" destination="5dJ-UV-AAk" id="ji8-YI-KT2"/>
+                        <outlet property="userImagesHolderView" destination="7gP-dS-VhO" id="Fnh-RH-XnJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m4n-W1-BuW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2898.4000000000001" y="-717.39130434782612"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="SQu-Wt-h33">
@@ -1445,6 +1570,7 @@
         <image name="back" width="64" height="64"/>
         <image name="circled-plus" width="256" height="256"/>
         <image name="default-avatar" width="512" height="512"/>
+        <image name="down-arrow" width="32" height="32"/>
         <image name="empty-heart" width="70" height="70"/>
         <image name="greaterThan" width="512" height="512"/>
         <image name="red_tesla" width="640" height="427"/>

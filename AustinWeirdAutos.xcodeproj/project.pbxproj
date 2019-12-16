@@ -16,6 +16,7 @@
 		BF3223A92365739D00A98A5C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3223A82365739D00A98A5C /* Post.swift */; };
 		BF3223AB2366F1EB00A98A5C /* OwnerPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3223AA2366F1EB00A98A5C /* OwnerPostCell.swift */; };
 		BF393CAF23A44FD80097941F /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF393CAE23A44FD80097941F /* Util.swift */; };
+		BF393CB123A5A5E70097941F /* UserPostPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF393CB023A5A5E70097941F /* UserPostPopoverViewController.swift */; };
 		BF55DCB5237E3F02001E32CC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55DCB4237E3F02001E32CC /* AuthService.swift */; };
 		BF946DAD236BBD2000997AC3 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF946DAC236BBD2000997AC3 /* CreatePostViewController.swift */; };
 		BF946DAF236D52B300997AC3 /* UserPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF946DAE236D52B300997AC3 /* UserPostsViewController.swift */; };
@@ -59,6 +60,7 @@
 		BF3223A82365739D00A98A5C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BF3223AA2366F1EB00A98A5C /* OwnerPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerPostCell.swift; sourceTree = "<group>"; };
 		BF393CAE23A44FD80097941F /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		BF393CB023A5A5E70097941F /* UserPostPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostPopoverViewController.swift; sourceTree = "<group>"; };
 		BF55DCB4237E3F02001E32CC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		BF946DAC236BBD2000997AC3 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		BF946DAE236D52B300997AC3 /* UserPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				BF3223A6236572EC00A98A5C /* OwnerPostsListViewController.swift */,
 				BF946DAC236BBD2000997AC3 /* CreatePostViewController.swift */,
 				BF946DAE236D52B300997AC3 /* UserPostsViewController.swift */,
+				BF393CB023A5A5E70097941F /* UserPostPopoverViewController.swift */,
 				BFCB8F80236D8D2000627FE7 /* FeedViewController.swift */,
 				BF99729123981AF100C61F7D /* CreateNewUserModalViewController.swift */,
 				BFF594112398937F0038BA19 /* CustomTabController.swift */,
@@ -408,6 +411,7 @@
 				BFF594172399C75D0038BA19 /* ContactViewController.swift in Sources */,
 				BF393CAF23A44FD80097941F /* Util.swift in Sources */,
 				BF3223A7236572EC00A98A5C /* OwnerPostsListViewController.swift in Sources */,
+				BF393CB123A5A5E70097941F /* UserPostPopoverViewController.swift in Sources */,
 				BFE7CDDC235FC4FC00E384E1 /* DataService.swift in Sources */,
 				BF3223AB2366F1EB00A98A5C /* OwnerPostCell.swift in Sources */,
 				BF3223A12365352C00A98A5C /* UserListViewController.swift in Sources */,

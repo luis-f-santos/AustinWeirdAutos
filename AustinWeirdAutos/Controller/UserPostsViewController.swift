@@ -18,6 +18,8 @@ class UserPostsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var posts = [Post]()
     var userID: String!
+    var didDataLoad = false
+    var selectedPostImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,7 @@ class UserPostsViewController: UIViewController, UITableViewDelegate, UITableVie
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
             
             self.posts = []
+            self.didDataLoad = true
             
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 
@@ -59,13 +62,15 @@ class UserPostsViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         print("LUIS: numberofRowsInSection ran")
-        if posts.count == 0 {
-            tableView.backgroundView = emptyTableView
-            tableView.separatorStyle = .none
+        if(self.didDataLoad){
+            if posts.count == 0 {
+                tableView.backgroundView = emptyTableView
+                tableView.separatorStyle = .none
 
-        }else {
-            tableView.backgroundView = nil
-            tableView.separatorStyle = .singleLine
+            }else {
+                tableView.backgroundView = nil
+                tableView.separatorStyle = .singleLine
+            }
         }
         return posts.count
     }
@@ -85,8 +90,30 @@ class UserPostsViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         
+        if let cell = tableView.cellForRow(at: indexPath) as? UserPostCell {
+            cell.setSelected(false, animated: false)
+            self.selectedPostImageView = cell.previewImage
+        }
+        
+        self.definesPresentationContext = true
+        var postSelected: Post!
+        postSelected = posts[indexPath.row]
+        performSegue(withIdentifier: "toUserPostPopover", sender: postSelected)
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toUserPostPopover" {
+            if let userPostPopoverVC = segue.destination as? UserPostPopoverViewController{
+                if let post = sender as? Post {
+                    userPostPopoverVC.selectedPost = post
+                    userPostPopoverVC.initialImage = self.selectedPostImageView.image!
+                    
+                }
+            }
+            
+        }
     }
 
     @IBAction func signOutTapped(_ sender: Any) {
