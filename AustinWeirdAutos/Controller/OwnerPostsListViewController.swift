@@ -171,7 +171,13 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
                                 print("LUIS: metadata.name = \(name)")
                                 let forwardSlash = "/"
                                 let url = "\(DataService.ds.REF_WEIRD_IMAGES)" + forwardSlash + name
-                                myCurrentCell.post.saveNewImageURL(imageUrl: url, imageUID: name)
+                                let currentDate = Date()
+                                let myDateFormatter = DateFormatter()
+                                myDateFormatter.dateFormat = "yyyy-MM-dd_HH:mm:ss"
+                                
+                                let newImageUID = myDateFormatter.string(from: currentDate) + imageUid
+                                
+                                myCurrentCell.post.saveNewImageURL(imageUrl: url, imageUID: newImageUID)
                                 
                             }
                         }

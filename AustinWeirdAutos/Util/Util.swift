@@ -9,7 +9,6 @@
 import UIKit
 
 fileprivate var aView : UIView?
-var scrollView: UIScrollView?
 
 extension UIViewController {
     

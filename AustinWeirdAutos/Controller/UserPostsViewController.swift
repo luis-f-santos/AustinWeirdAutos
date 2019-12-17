@@ -18,6 +18,9 @@ class UserPostsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var posts = [Post]()
     var userID: String!
+    static var imageCache: NSCache<NSString, UIImage> = NSCache()
+    
+    
     var didDataLoad = false
     var selectedPostImageView: UIImageView!
     

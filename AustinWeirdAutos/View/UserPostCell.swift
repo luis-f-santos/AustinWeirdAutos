@@ -45,27 +45,36 @@ class UserPostCell: UITableViewCell {
         
         //Now only checking if the imageURLs array even exists
         if post.imageURLs.count > 0 {
+            
+            let lastIndexForImageURLs = post.imageURLs.count - 1
+            
+            if let img = UserPostsViewController.imageCache.object(forKey: post.imageURLs[lastIndexForImageURLs] as NSString) {
+                
+                self.previewImage.image = img
+                
+            }else {
 
-            print("url to download: \(post.imageURLs[0])")
-            let ref = Storage.storage().reference(forURL: post.imageURLs[0])
+                print("url to download: \(post.imageURLs[lastIndexForImageURLs])")
+                let ref = Storage.storage().reference(forURL: post.imageURLs[lastIndexForImageURLs])
 
-            //maxSize = 2Mb
-            ref.getData(maxSize: 2 * 1024 * 1024, completion: { (data, error) in
+                //maxSize = 2Mb
+                ref.getData(maxSize: 2 * 1024 * 1024, completion: { (data, error) in
 
-                if error != nil {
-                    print("LUIS: Unable to download image from FirebaseStorage")
-                } else {
+                    if error != nil {
+                        print("LUIS: Unable to download image from FirebaseStorage")
+                    } else {
 
-                    print("LUIS: Successfull Downloaded from firebase storage")
+                        print("LUIS: Successfull Downloaded from firebase storage")
 
-                    if let imgData = data {
-                        if let img = UIImage(data: imgData){
-                            self.previewImage.image = img
-                            // FeedViewController.imageCache.setObject(img, forKey: post.imageUrl as NSString)
+                        if let imgData = data {
+                            if let img = UIImage(data: imgData){
+                                self.previewImage.image = img
+                                UserPostsViewController.imageCache.setObject(img, forKey: post.imageURLs[lastIndexForImageURLs] as NSString)
+                            }
                         }
                     }
-                }
-            })
+                })
+            }
         }
         
         //TODO: add logic for publicLbl and ProgressLbl

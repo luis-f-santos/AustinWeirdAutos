@@ -113,9 +113,16 @@ class Post {
         if let imageURLs = postData["imageURLs"] as? Dictionary<String, AnyObject> {
             
             _imageURLDict = imageURLs
-            for url in imageURLs {
-                _imageURLs.append(url.value as! String)
+            
+            
+            for (k,v) in (Array(imageURLs).sorted {$0.key < $1.key}) {
+                
+                _imageURLs.append(v as! String)
+                print("sorted keys: \(k)")
             }
+//            for url in imageURLs {
+//                _imageURLs.append(url.value as! String)
+//            }
         }
 
     }

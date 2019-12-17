@@ -116,7 +116,13 @@ class CreatePostViewController: UIViewController, UIPickerViewDelegate, UIPicker
                         let forwardSlash = "/"
                         let url = "\(DataService.ds.REF_WEIRD_IMAGES)" + forwardSlash + name
                         
-                        self.postToFirebase(imageUrl: url, imageUID: imageUid)
+                        let currentDate = Date()
+                        let myDateFormatter = DateFormatter()
+                        myDateFormatter.dateFormat = "yyyy-MM-dd_HH:mm:ss"
+                        
+                        let newImageUID = myDateFormatter.string(from: currentDate) + imageUid
+                        
+                        self.postToFirebase(imageUrl: url, imageUID: newImageUID)
                     }
                 }
             })
