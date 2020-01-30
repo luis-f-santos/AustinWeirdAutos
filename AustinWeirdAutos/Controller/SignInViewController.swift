@@ -105,7 +105,7 @@ class SignInViewController: UIViewController {
                         return
                     }
                     
-                    //Message is empty so login must've been
+                    //Message is empty so login must've been successfull
                     print("LUIS: \(email) user authenticated with Firebase")
                     
                     if let authData = data {
@@ -138,7 +138,6 @@ class SignInViewController: UIViewController {
             performSegue(withIdentifier: "toCustomTabController", sender: nil)
         }
         else {
-            
             performSegue(withIdentifier: "toCustomTabController", sender: id)
         }
         

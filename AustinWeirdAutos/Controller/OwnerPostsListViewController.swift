@@ -23,6 +23,7 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
     var imagePicker: UIImagePickerController!
     var userAddedImage = false
     var addedImage = UIImageView()
+    var oldImageView: UIImageView!
     var currentCell = OwnerPostCell()
     
     var posts = [Post]()
@@ -148,6 +149,9 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
                     print("LUIS: New Image has not been added")
                     return
                 }
+                
+                //reseting bool
+                userAddedImage = false
             
                 if let imageData = UIImageJPEGRepresentation(image, 0.2) {
                     
@@ -160,6 +164,7 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
                         
                         if error != nil {
                             self.removeSpinner()
+                            self.addedImage.image = self.oldImageView.image
                             print("LUIS: Unable to upload image to firebase")
                         } else {
                             
@@ -182,13 +187,8 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
                             }
                         }
                     })
-                    
-                    
                 }
             }
-            
-            
-            
             
         }
         
@@ -214,7 +214,7 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
             }
             return false
             
-        }else { //currentCell is nil so assign the new editing Index
+        } else { //currentCell is nil so assign the new editing Index
             
             let point = tableView.convert(editLbl.bounds.origin, from: editLbl)
             if let indexPath = tableView.indexPathForRow(at: point){
@@ -242,6 +242,7 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
                 
                 //currentCell = myCurrentCell
                 addedImage = myCurrentCell.previewImage
+                oldImageView = UIImageView(image: myCurrentCell.previewImage.image)
                 present(imagePicker, animated: true, completion: nil)
             }
         }

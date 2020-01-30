@@ -99,7 +99,7 @@ class UserPostsViewController: UIViewController, UITableViewDelegate, UITableVie
             self.selectedPostImageView = cell.previewImage
         }
         
-        self.definesPresentationContext = true
+//        self.definesPresentationContext = true
         var postSelected: Post!
         postSelected = posts[indexPath.row]
         performSegue(withIdentifier: "toUserPostPopover", sender: postSelected)

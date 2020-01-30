@@ -38,7 +38,10 @@ class UserListViewController: UIViewController, UITableViewDelegate, UITableView
                         
                         let key = snap.key
                         let user = User(userKey: key, postData: postDict)
-                        self.users.append(user)
+                        
+                        if (user.userID != DataService.ds.REF_MASTER_UID){
+                            self.users.append(user)
+                        }
                     }
                 }
             }

@@ -57,10 +57,10 @@ class User {
             _lastName = "Unknown"
         }
         
-        if let phoneNumber = postData["phoneNumber"] as? Int{
+        if let phoneNumber = postData["phoneNumber"] as? String{
             _phoneNumber = "\(phoneNumber)"
         } else {
-            _phoneNumber = "Unknown"
+            _phoneNumber = "Not Provided"
         }
         
         

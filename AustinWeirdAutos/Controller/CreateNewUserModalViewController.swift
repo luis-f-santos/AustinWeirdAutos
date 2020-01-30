@@ -41,26 +41,25 @@ class CreateNewUserModalViewController: UIViewController {
         
         
         
-        if let firstName = firstNameTextView.text, firstName.characters.count < 1 {
+        if let firstName = firstNameTextView.text, firstName.count < 1 {
             firstNameTextView.layer.borderWidth = 1
             firstNameTextView.layer.borderColor = UIColor.red.cgColor
-            return
         }
         
-        if let lastName = lastNameTextView.text, lastName.characters.count < 1 {
+        if let lastName = lastNameTextView.text, lastName.count < 1 {
             lastNameTextView.layer.borderWidth = 1
             lastNameTextView.layer.borderColor = UIColor.red.cgColor
-            return
-            
         }
         
-        if(passwordTextView.text != originalPassword){
+        if let pw = passwordTextView.text, pw != originalPassword || !pw.isEmpty {
             passwordTextView.layer.borderWidth = 1
             passwordTextView.layer.borderColor = UIColor.red.cgColor
             
-            passwordLabel.text = "Wrong Password"
-            passwordLabel.textColor = UIColor.red
+            passwordLabel.text = "Wrong Password!"
+            passwordLabel.font = UIFont.boldSystemFont(ofSize: 17)
+            //passwordLabel.textColor = UIColor.red
         }
+            
         else {
         
             let userData: Dictionary<String, AnyObject> = [
@@ -70,14 +69,10 @@ class CreateNewUserModalViewController: UIViewController {
             ]
             
             dismiss(animated: true, completion: nil)
-            
             onSave?(userData)
         }
     }
-    @IBAction func backgroundBtnTapped(_ sender: Any) {
-        
-        dismiss(animated: true, completion: nil)
-    }
+
 
 
     

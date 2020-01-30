@@ -125,8 +125,7 @@ class OwnerPostCell: UITableViewCell {
         addImageCircleImg.isUserInteractionEnabled = true
         
         fadedView.isHidden = false
-        fadedView.backgroundColor = UIColor(red: 22, green: 22, blue: 22, alpha: 1)
-        fadedView.alpha = 0.65
+        fadedView.backgroundColor = UIColor.lightGray
         
     }
     
