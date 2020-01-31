@@ -1422,7 +1422,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toyota" translatesAutoresizingMaskIntoConstraints="NO" id="K0l-qq-JkQ">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Toyota" translatesAutoresizingMaskIntoConstraints="NO" id="K0l-qq-JkQ">
                                                     <rect key="frame" x="19" y="19" width="60" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="5ng-02-uMh"/>
@@ -1580,6 +1580,7 @@
     </scenes>
     <resources>
         <image name="AustinWierdAutosLogo" width="512" height="291.5"/>
+        <image name="Toyota" width="500" height="293"/>
         <image name="add-car" width="200" height="200"/>
         <image name="back" width="64" height="64"/>
         <image name="circled-plus" width="256" height="256"/>

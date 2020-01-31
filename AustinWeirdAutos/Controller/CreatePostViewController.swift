@@ -117,12 +117,16 @@ class CreatePostViewController: UIViewController, UIPickerViewDelegate, UIPicker
                         let url = "\(DataService.ds.REF_WEIRD_IMAGES)" + forwardSlash + name
                         
                         let currentDate = Date()
-                        let myDateFormatter = DateFormatter()
-                        myDateFormatter.dateFormat = "yyyy-MM-dd_HH:mm:ss"
+                        let imageDateFormatter = DateFormatter()
+                        let postDateFormatter = DateFormatter()
                         
-                        let newImageUID = myDateFormatter.string(from: currentDate) + imageUid
+                        imageDateFormatter.dateFormat = "yyyy-MM-dd_HH:mm:ss"
+                        postDateFormatter.dateFormat = "MMMM d, yyyy"
                         
-                        self.postToFirebase(imageUrl: url, imageUID: newImageUID)
+                        let newImageUID = imageDateFormatter.string(from: currentDate) + imageUid
+                        let dateCreatedPost = postDateFormatter.string(from: currentDate)
+                        
+                        self.postToFirebase(imageUrl: url, imageUID: newImageUID, dateCreatedPost:  dateCreatedPost)
                     }
                 }
             })
@@ -132,13 +136,14 @@ class CreatePostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
     }
     
-    func postToFirebase (imageUrl: String, imageUID: String) {
+    func postToFirebase (imageUrl: String, imageUID: String, dateCreatedPost: String) {
         
         let falseBool = false
         var picURLsDict: Dictionary<String, AnyObject> = Dictionary<String, AnyObject>()
         picURLsDict[imageUID] = imageUrl as AnyObject
         
         let post: Dictionary<String, AnyObject> = [
+            "dateCreated": dateCreatedPost as AnyObject,
             "description": "Need to add description" as AnyObject,
             "imageURLs": picURLsDict as AnyObject,
             "isComplete": falseBool as AnyObject,

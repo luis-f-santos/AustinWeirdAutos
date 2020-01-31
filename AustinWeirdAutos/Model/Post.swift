@@ -81,7 +81,7 @@ class Post {
         if let dateCreated = postData["dateCreated"] as? String{
             _dateCreated = dateCreated
         }else{
-            _dateCreated = ""
+            _dateCreated = "Missing Date"
         }
         if let description = postData["description"] as? String{
             _description = description
