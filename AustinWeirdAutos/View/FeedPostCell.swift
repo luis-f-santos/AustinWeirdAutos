@@ -49,6 +49,7 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
         descriptionTextView.text = post.description
         numLikesLbl.text = "\(post.likes)"
         postImage.image = UIImage (named: "red_tesla")  //Default image
+        makeImage.image = UIImage(named: post.make)
         
         
         //scrollView = UIScrollView()
