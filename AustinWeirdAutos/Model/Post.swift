@@ -152,5 +152,15 @@ class Post {
         _postRef.child("imageURLs").setValue(_imageURLDict)
     }
     
+    func adjustLikes(addLike: Bool) {
+        if addLike {
+            _likes = _likes + 1
+        }else {
+            _likes = _likes - 1
+        }
+        
+        _postRef.child("likes").setValue(_likes)
+    }
+    
     
 }

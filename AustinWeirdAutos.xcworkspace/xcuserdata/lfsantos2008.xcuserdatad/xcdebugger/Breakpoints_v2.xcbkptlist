@@ -100,8 +100,8 @@
             timestampString = "598253960.989185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "configureFeedCell(post:)"
             landmarkType = "7">
          </BreakpointContent>

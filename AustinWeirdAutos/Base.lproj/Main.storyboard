@@ -174,7 +174,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BT3-La-zSA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Pyd-hg-vMH"/>
+                <tapGestureRecognizer id="Pyd-hg-vMH">
+                    <connections>
+                        <action selector="cancelBtnTapped:" destination="sot-Ya-7Vv" id="Lgg-2k-65W"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-426.39999999999998" y="909.60591133004925"/>
         </scene>
@@ -1540,6 +1544,7 @@
                                         <connections>
                                             <outlet property="dateCreatedLbl" destination="hYt-lD-WWp" id="fab-Eh-ISH"/>
                                             <outlet property="descriptionTextView" destination="7g8-vG-X8I" id="bge-KM-RfB"/>
+                                            <outlet property="likesImg" destination="iwa-5i-vla" id="Ajd-fv-GVF"/>
                                             <outlet property="makeImage" destination="K0l-qq-JkQ" id="yze-4U-ino"/>
                                             <outlet property="numLikesLbl" destination="oNM-lQ-eVO" id="zgQ-0l-Qe8"/>
                                             <outlet property="pageControl" destination="8hn-AW-VKv" id="L5m-YJ-95Q"/>

@@ -20,12 +20,13 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
     @IBOutlet weak var dateCreatedLbl: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var numLikesLbl: UILabel!
-    
+    @IBOutlet weak var likesImg: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
     
     var post: Post!
+    var likesRef: DatabaseReference!
     
     var defaultImageView: UIImageView!
     var scrollViewAI: UIActivityIndicatorView!
@@ -35,13 +36,16 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
         super.awakeFromNib()
         
         scrollView.delegate = self
+        let tap = UITapGestureRecognizer(target: self, action: #selector(likeTapped))
+        tap.numberOfTapsRequired = 1
+        likesImg.addGestureRecognizer(tap)
+        likesImg.isUserInteractionEnabled = true
     }
     
 //    func prepareForReuse() {
 //        <#code#>
 //    }
 
-    
     func configureFeedCell(post: Post) {
         
         self.post =  post
@@ -52,6 +56,18 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
         postImage.image = UIImage (named: "red_tesla")  //Default image
         makeImage.image = UIImage(named: post.make)
         
+        likesRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postID)
+        
+        likesRef.observeSingleEvent(of: .value) { (snapshot) in
+            
+            if let _ = snapshot.value as? NSNull {
+                self.likesImg.image = UIImage(named: "empty-heart")
+                
+            } else {
+                self.likesImg.image = UIImage(named: "filled-heart")
+                self.likesImg.tintColor = PRIMARY_UICOLOR
+            }
+        }
         
         //scrollView = UIScrollView()
         var defaultImageFrame = CGRect(x: 0, y: 0, width: 0, height: 0)
@@ -170,6 +186,26 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
         scrollViewAI.startAnimating()
         aView.addSubview(scrollViewAI)
         scrollView.addSubview(aView)
+        
+    }
+    
+    @objc func likeTapped(sender: UITapGestureRecognizer) {
+        
+        likesRef.observeSingleEvent(of: .value) { (snapshot) in
+            
+            if let _ = snapshot.value as? NSNull {
+                
+                self.likesImg.image = UIImage(named: "filled-heart")
+                self.likesImg.tintColor = PRIMARY_UICOLOR
+                self.post.adjustLikes(addLike: true)
+                self.likesRef.setValue(true)
+            } else {
+                
+                self.likesImg.image = UIImage(named: "empty-heart")
+                self.post.adjustLikes(addLike: false)
+                self.likesRef.removeValue()
+            }
+        }
         
     }
 //9D5BAB5C-176D-4035-B235-10BC854AAC0D
