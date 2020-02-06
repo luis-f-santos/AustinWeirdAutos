@@ -28,6 +28,7 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
     var post: Post!
     
     var defaultImageView: UIImageView!
+    var scrollViewAI: UIActivityIndicatorView!
     
     
     override func awakeFromNib() {
@@ -83,6 +84,7 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
                 pageControl.isHidden = false
             }
             
+            self.scrollView.contentSize.width = scrollView.frame.size.width*CGFloat(post.imageURLs.count)
             
             for index in 0..<post.imageURLs.count {
                 
@@ -96,16 +98,21 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
                     imageView.clipsToBounds = true
                     imageView.image = img
                     
-                    let xPos = CGFloat(index) * self.bounds.size.width
+                    let xPos = CGFloat(index) * UIScreen.main.bounds.width
                     
-                    imageView.frame = CGRect(x: xPos, y: 0, width: self.frame.size.width, height: self.scrollView.frame.size.height)
+                    imageView.frame = CGRect(x: xPos, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
                     
-                    scrollView.contentSize.width = self.frame.size.width*CGFloat(index+1)
+                    imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                    scrollView.autoresizesSubviews = true
+                    scrollView.contentSize.width = UIScreen.main.bounds.width * CGFloat(index + 1)
                     
                     scrollView.addSubview(imageView)
                     //self.postImage.image = img
                     
                 } else {
+                    
+                    addActivityIndicator(pageIndex: index)
+                    
                     print("url to download: \(post.imageURLs[index])")
                     let ref = Storage.storage().reference(forURL: post.imageURLs[index])
                 
@@ -120,18 +127,19 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
                             if let imgData = data {
                                 if let img = UIImage(data: imgData){
                                     
+                                    self.scrollViewAI.stopAnimating()
                                     let imageView = UIImageView()
                                     imageView.contentMode = .scaleAspectFit
                                     imageView.clipsToBounds = true
                                     imageView.image = img
                                     
-                                    let xPos = CGFloat(index) * self.bounds.size.width
+                                    let xPos = CGFloat(index) * UIScreen.main.bounds.width
                                     
-                                    imageView.frame = CGRect(x: xPos, y: 0, width: self.frame.size.width, height: self.scrollView.frame.size.height)
-                                    
-                                    self.scrollView.contentSize.width = self.frame.size.width*CGFloat(index+1)
+                                    imageView.frame = CGRect(x: xPos, y: 0, width: self.scrollView.frame.size.width, height: self.scrollView.frame.size.height)
                                     
                                     self.scrollView.addSubview(imageView)
+                                    
+                                    
                                     //self.postImage.image = img
                                     FeedViewController.imageCache.setObject(img, forKey: post.imageURLs[index] as NSString)
                                 }
@@ -152,7 +160,16 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
         
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func addActivityIndicator (pageIndex: Int) {
+        let aView = UIView()
+        aView.backgroundColor = UIColor.clear
+        let xPos = CGFloat(pageIndex) * UIScreen.main.bounds.width
+        aView.frame = CGRect(x: xPos, y: 0, width: self.scrollView.frame.size.width, height: self.scrollView.frame.size.height)
+        scrollViewAI = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        scrollViewAI.center = aView.center
+        scrollViewAI.startAnimating()
+        aView.addSubview(scrollViewAI)
+        scrollView.addSubview(aView)
         
     }
 //9D5BAB5C-176D-4035-B235-10BC854AAC0D

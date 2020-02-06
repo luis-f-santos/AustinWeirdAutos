@@ -1089,7 +1089,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toyota" translatesAutoresizingMaskIntoConstraints="NO" id="gVF-WS-bQB">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Toyota" translatesAutoresizingMaskIntoConstraints="NO" id="gVF-WS-bQB">
                                                     <rect key="frame" x="20" y="12" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="22G-FV-8yg"/>
@@ -1590,7 +1590,6 @@
         <image name="greaterThan" width="512" height="512"/>
         <image name="red_tesla" width="640" height="427"/>
         <image name="sign-out" width="92" height="65"/>
-        <image name="toyota" width="500" height="293"/>
     </resources>
     <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
 </document>

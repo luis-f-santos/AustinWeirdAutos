@@ -76,9 +76,7 @@ class UserPostPopoverViewController: UIViewController, UIScrollViewDelegate {
                 
                 pageControl.numberOfPages = post.imageURLs.count
                 
-                
                 for index in 0..<post.imageURLs.count {
-                    
                     
                     if let img = UserPostsViewController.imageCache.object(forKey: post.imageURLs[index] as NSString) {
                         
@@ -90,7 +88,6 @@ class UserPostPopoverViewController: UIViewController, UIScrollViewDelegate {
                         imageView.image = img
                         
                         let xPos = CGFloat(index) * UIScreen.main.bounds.width
-                        print("scrollview: Using CacheImage, for index: \(index), HolderView width = \(self.userImagesHolderView.bounds.size.width)")
                         imageView.frame = CGRect(x: xPos, y: 0, width: self.userImagesHolderView.frame.size.width, height: self.userImagesHolderView.frame.size.height)
                         
                         imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -130,7 +127,6 @@ class UserPostPopoverViewController: UIViewController, UIScrollViewDelegate {
                                         imageView.image = img
                                         
                                         let xPos = CGFloat(index) * UIScreen.main.bounds.width
-                                        print("scrollview: Using DownloadedImage, for index: \(index), HolderView width = \(self.userImagesHolderView.bounds.size.width)")
                                         imageView.frame = CGRect(x: xPos, y: 0, width: self.userImagesHolderView.frame.size.width, height: self.userImagesHolderView.frame.size.height)
                                         
                                         self.scrollView.addSubview(imageView)
@@ -151,8 +147,9 @@ class UserPostPopoverViewController: UIViewController, UIScrollViewDelegate {
                             
                         })
                     }
-                } //end of while loop
+                } //end of for loop
                 
+                //setting ScrollView to last page
                 scrollView.contentOffset.x = (CGFloat)(post.imageURLs.count - 1 ) * UIScreen.main.bounds.width
                 pageControl.currentPage = post.imageURLs.count - 1
                 

@@ -35,6 +35,7 @@ class UserPostCell: UITableViewCell {
         makeLabel.text = post.make
         modelLabel.text = post.model
         dateCreatedLabel.text = post.dateCreated
+        makeImage.image = UIImage(named: post.make)
         
         if (post.isComplete) {
             currentProgressLabel.text = "Completed"
