@@ -12,7 +12,7 @@ import FBSDKLoginKit
 import Firebase
 import SwiftKeychainWrapper
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -22,10 +22,26 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var bottomBannerLbl: UILabel!
     
     var userData = Dictionary<String, AnyObject>();
+    var activeField: UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(SignInViewController.keyboardWillAppear), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SignInViewController.keyboardWillDisappear), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+    }
+    
+        
+    deinit {
+            //Stop listening for keyboard hide/show events
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -41,6 +57,30 @@ class SignInViewController: UIViewController {
             }
         }
 
+    }
+    
+    @objc func keyboardWillAppear(notification: Notification){
+        
+        guard let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size else {
+            return
+        }
+        
+        if let activeField = self.activeField {
+            
+            let superPoint = SignInViewController.getConvertedPoint(self.view, baseView: activeField)
+            let maxYpostition = (superPoint.y - activeField.frame.height) * -1
+            let keyboardYposition = self.view.frame.height - keyboardSize.height
+
+            if (maxYpostition > keyboardYposition){
+                let yAxisMove = Int(maxYpostition) - Int(keyboardYposition)
+                self.view.frame.origin.y =  -CGFloat(yAxisMove)
+            }
+        }
+    }
+    
+    @objc func keyboardWillDisappear(notification: Notification){
+        
+        self.view.frame.origin.y = 0
     }
 
     @IBAction func loginTapped(_ sender: Any) {
@@ -167,6 +207,39 @@ class SignInViewController: UIViewController {
             }
         }
 
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        textField.resignFirstResponder()
+        return true;
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        activeField = textField
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
+        activeField = nil
+    }
+    
+    static func getConvertedPoint(_ targetView: UIView, baseView: UIView)->CGPoint{
+        var pnt = targetView.frame.origin
+        if nil == targetView.superview{
+            return pnt
+        }
+        var superView = targetView.superview
+        while superView != baseView{
+            pnt = superView!.convert(pnt, to: superView!.superview)
+            if nil == superView!.superview{
+                break
+            }else{
+                superView = superView!.superview
+            }
+        }
+        return superView!.convert(pnt, to: baseView)
     }
         
     
