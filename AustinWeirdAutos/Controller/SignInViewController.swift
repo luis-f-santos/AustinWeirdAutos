@@ -67,7 +67,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         
         if let activeField = self.activeField {
             
-            let superPoint = SignInViewController.getConvertedPoint(self.view, baseView: activeField)
+            let superPoint = getConvertedPoint(self.view, baseView: activeField)
             let maxYpostition = (superPoint.y - activeField.frame.height) * -1
             let keyboardYposition = self.view.frame.height - keyboardSize.height
 
@@ -225,22 +225,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         activeField = nil
     }
     
-    static func getConvertedPoint(_ targetView: UIView, baseView: UIView)->CGPoint{
-        var pnt = targetView.frame.origin
-        if nil == targetView.superview{
-            return pnt
-        }
-        var superView = targetView.superview
-        while superView != baseView{
-            pnt = superView!.convert(pnt, to: superView!.superview)
-            if nil == superView!.superview{
-                break
-            }else{
-                superView = superView!.superview
-            }
-        }
-        return superView!.convert(pnt, to: baseView)
-    }
         
     
 }

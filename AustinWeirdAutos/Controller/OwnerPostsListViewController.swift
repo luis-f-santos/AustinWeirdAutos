@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate  {
 
     
     @IBOutlet weak var tableView: UITableView!
@@ -44,7 +44,8 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
             userNameLbl.text = userName
         }
 
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(OwnerPostsListViewController.keyboardWillAppear), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(OwnerPostsListViewController.keyboardWillDisappear), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
             
@@ -72,6 +73,32 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
             self.tableView.reloadData()
         })
     }
+    
+    deinit {
+        //Stop listening for keyboard hide/show events
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+    }
+    
+    @objc func keyboardWillAppear(notification: Notification){
+        
+        guard let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size else {
+            return
+        }
+        var contentInset:UIEdgeInsets = self.tableView.contentInset
+        contentInset.bottom = keyboardSize.height
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0)
+        
+        tableView.scrollToRow(at: editingIndexPath!, at: UITableView.ScrollPosition.bottom, animated: true)
+
+    }
+    
+    @objc func keyboardWillDisappear(notification: Notification){
+        
+        tableView.contentInset.bottom = 0
+    }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -247,6 +274,12 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
             }
         }
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        textField.resignFirstResponder()
+        return true;
     }
     
     @IBAction func backBtnTapped(_ sender: Any) {
