@@ -132,8 +132,8 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
                     print("url to download: \(post.imageURLs[index])")
                     let ref = Storage.storage().reference(forURL: post.imageURLs[index])
                 
-                    //maxSize = 2Mb
-                    ref.getData(maxSize: 2 * 1024 * 1024, completion: { (data, error) in
+                    //maxSize = 1Mb
+                    ref.getData(maxSize: 1 * 1024 * 1024, completion: { (data, error) in
                         
                         if error != nil {
                             print("LUIS: Unable to download image from FirebaseStorage")

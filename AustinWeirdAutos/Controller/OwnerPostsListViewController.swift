@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate  {
+class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate  {
 
     
     @IBOutlet weak var tableView: UITableView!
@@ -18,6 +18,7 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
     
     var currentCellinEdit: Int?
     var editingIndexPath: IndexPath?
+    var activeTextView: UITextView?
     
     
     var imagePicker: UIImagePickerController!
@@ -44,7 +45,7 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
             userNameLbl.text = userName
         }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(OwnerPostsListViewController.keyboardWillAppear), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(OwnerPostsListViewController.keyboardWillAppear), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(OwnerPostsListViewController.keyboardWillDisappear), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
@@ -74,9 +75,15 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
         })
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
     deinit {
         //Stop listening for keyboard hide/show events
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardDidShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
     }
@@ -88,9 +95,15 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
         }
         var contentInset:UIEdgeInsets = self.tableView.contentInset
         contentInset.bottom = keyboardSize.height
+        //var halfcellheight = 0//keyboardSize.height //* 0.4
         tableView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0)
         
-        tableView.scrollToRow(at: editingIndexPath!, at: UITableView.ScrollPosition.bottom, animated: true)
+        if let activeTextView = self.activeTextView {
+            let point = tableView.convert(activeTextView.bounds.origin, from: activeTextView)
+            if let indexPath = tableView.indexPathForRow(at: point){
+                tableView.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.bottom, animated: true)
+            }
+        }
 
     }
     
@@ -248,9 +261,10 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
                 
                 editingIndexPath = indexPath
                 
-                if let currentCell = tableView.cellForRow(at: indexPath) as? OwnerPostCell {
+                if let currentCell = tableView.cellForRow(at: editingIndexPath!) as? OwnerPostCell {
                     
 //                    currentCell.backgroundColor = UIColor.lightGray
+                    currentCell.descriptionText.delegate = self
                     currentCell.setSelected(true, animated: true)
                 }
             }
@@ -276,11 +290,14 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
-    {
-        textField.resignFirstResponder()
-        return true;
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        activeTextView = textView
     }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        activeTextView = nil
+    }
+    
     
     @IBAction func backBtnTapped(_ sender: Any) {
         

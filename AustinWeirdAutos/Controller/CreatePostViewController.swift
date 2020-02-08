@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 
-class CreatePostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CreatePostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     
     @IBOutlet weak var picker: UIPickerView!
@@ -34,6 +34,9 @@ class CreatePostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+        
+        modelTextField.delegate = self
+        modelYearTextField.delegate = self
         
         modelYearTextField.keyboardType = UIKeyboardType.decimalPad
         
@@ -170,6 +173,12 @@ class CreatePostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         dismiss(animated: true, completion: nil )
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        textField.resignFirstResponder()
+        return true;
     }
     
 }
