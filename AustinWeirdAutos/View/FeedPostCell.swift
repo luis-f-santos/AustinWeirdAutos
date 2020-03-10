@@ -29,6 +29,7 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
     var likesRef: DatabaseReference!
     
     var defaultImageView: UIImageView!
+    var imageURLString: String!
     var scrollViewAI: UIActivityIndicatorView!
     
     
@@ -130,6 +131,7 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
                     addActivityIndicator(pageIndex: index)
                     
                     print("url to download: \(post.imageURLs[index])")
+                    imageURLString = post.imageURLs[index]
                     let ref = Storage.storage().reference(forURL: post.imageURLs[index])
                 
                     //maxSize = 1Mb
@@ -143,20 +145,20 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
                             if let imgData = data {
                                 if let img = UIImage(data: imgData){
                                     
-                                    self.scrollViewAI.stopAnimating()
-                                    let imageView = UIImageView()
-                                    imageView.contentMode = .scaleAspectFit
-                                    imageView.clipsToBounds = true
-                                    imageView.image = img
+                                    if (post.imageURLs[index] == self.imageURLString){
+                                        self.scrollViewAI.stopAnimating()
+                                        let imageView = UIImageView()
+                                        imageView.contentMode = .scaleAspectFit
+                                        imageView.clipsToBounds = true
+                                        imageView.image = img
+                                        
+                                        let xPos = CGFloat(index) * UIScreen.main.bounds.width
+                                        
+                                        imageView.frame = CGRect(x: xPos, y: 0, width: self.scrollView.frame.size.width, height: self.scrollView.frame.size.height)
+                                        
+                                        self.scrollView.addSubview(imageView)
+                                    }
                                     
-                                    let xPos = CGFloat(index) * UIScreen.main.bounds.width
-                                    
-                                    imageView.frame = CGRect(x: xPos, y: 0, width: self.scrollView.frame.size.width, height: self.scrollView.frame.size.height)
-                                    
-                                    self.scrollView.addSubview(imageView)
-                                    
-                                    
-                                    //self.postImage.image = img
                                     FeedViewController.imageCache.setObject(img, forKey: post.imageURLs[index] as NSString)
                                 }
                             }
