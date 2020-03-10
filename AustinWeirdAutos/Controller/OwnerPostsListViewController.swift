@@ -93,17 +93,20 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
         guard let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size else {
             return
         }
-        var contentInset:UIEdgeInsets = self.tableView.contentInset
-        contentInset.bottom = keyboardSize.height
-        //var halfcellheight = 0//keyboardSize.height //* 0.4
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0)
         
-        if let activeTextView = self.activeTextView {
-            let point = tableView.convert(activeTextView.bounds.origin, from: activeTextView)
-            if let indexPath = tableView.indexPathForRow(at: point){
-                tableView.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.bottom, animated: true)
-            }
-        }
+        var contentInsets:UIEdgeInsets
+        contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
+        tableView.contentInset = contentInsets
+        
+        UIView.animate(withDuration: 0, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            
+            self.view.layoutIfNeeded()
+            
+        }, completion: { (completed) in
+            
+            self.tableView.scrollToRow(at: self.editingIndexPath!, at: UITableView.ScrollPosition.bottom, animated: true)
+        })
+        
 
     }
     
@@ -263,9 +266,12 @@ class OwnerPostsListViewController: UIViewController, UITableViewDelegate, UITab
                 
                 if let currentCell = tableView.cellForRow(at: editingIndexPath!) as? OwnerPostCell {
                     
-//                    currentCell.backgroundColor = UIColor.lightGray
+                    //currentCell.backgroundColor = UIColor.lightGray
                     currentCell.descriptionText.delegate = self
                     currentCell.setSelected(true, animated: true)
+                    currentCell.descriptionText.tintColor = UIColor.black
+                    tableView.tintColor = UIColor.black
+                    //currentCell.selectionStyle = UITableViewCellSelectionStyle.none
                 }
             }
             
