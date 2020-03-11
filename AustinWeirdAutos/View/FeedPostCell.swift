@@ -29,8 +29,9 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
     var likesRef: DatabaseReference!
     
     var defaultImageView: UIImageView!
-    var imageURLString: String!
+    var postID: String!
     var scrollViewAI: UIActivityIndicatorView!
+    var cellIndexPath: IndexPath!
     
     
     override func awakeFromNib() {
@@ -42,14 +43,12 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
         likesImg.addGestureRecognizer(tap)
         likesImg.isUserInteractionEnabled = true
     }
-    
-//    func prepareForReuse() {
-//        <#code#>
-//    }
 
-    func configureFeedCell(post: Post) {
+
+    func configureFeedCell(post: Post, indexPath: IndexPath) {
         
         self.post =  post
+        self.cellIndexPath = indexPath
         vehicleLbl.text  = "\(post.year) \(post.make) \(post.model)"
         dateCreatedLbl.text = post.dateCreated
         descriptionTextView.text = post.description
@@ -124,28 +123,28 @@ class FeedPostCell: UITableViewCell, UIScrollViewDelegate {
                     scrollView.contentSize.width = UIScreen.main.bounds.width * CGFloat(index + 1)
                     
                     scrollView.addSubview(imageView)
-                    //self.postImage.image = img
                     
                 } else {
                     
                     addActivityIndicator(pageIndex: index)
-                    
                     print("url to download: \(post.imageURLs[index])")
-                    imageURLString = post.imageURLs[index]
+                    postID = post.postID
+                    
                     let ref = Storage.storage().reference(forURL: post.imageURLs[index])
-                
                     //maxSize = 1Mb
                     ref.getData(maxSize: 1 * 1024 * 1024, completion: { (data, error) in
                         
                         if error != nil {
                             print("LUIS: Unable to download image from FirebaseStorage")
                         } else {
-                            print("LUIS: Successfull Downloaded from firebase storage")
+                            print("LUIS: Successfully Downloaded \(post.year) \(post.model): image \(index) from firbase")
+                            
                             
                             if let imgData = data {
                                 if let img = UIImage(data: imgData){
                                     
-                                    if (post.imageURLs[index] == self.imageURLString){
+                                    //Checking if when were loading the correct image
+                                    if (post.postID == self.postID){
                                         self.scrollViewAI.stopAnimating()
                                         let imageView = UIImageView()
                                         imageView.contentMode = .scaleAspectFit

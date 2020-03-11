@@ -540,47 +540,50 @@
                                     <constraint firstAttribute="height" constant="250" id="5xJ-By-5LW"/>
                                 </constraints>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9706 Middle Fiskville Rd. #A Austin, TX 78753" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxa-aJ-LvU">
-                                <rect key="frame" x="67.666666666666686" y="425" width="240" height="40.666666666666686"/>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" text="9706 Middle Fiskville Rd. #A Austin, TX 78753" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RP7-KQ-uUb">
+                                <rect key="frame" x="67.666666666666686" y="425" width="240" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="snq-wF-58Q"/>
+                                    <constraint firstAttribute="width" constant="240" id="YN9-qg-jyW"/>
+                                    <constraint firstAttribute="height" constant="60" id="mDX-pZ-lQp"/>
                                 </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone: 512-992-7354" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NY1-eL-VnV">
-                                <rect key="frame" x="55" y="485.66666666666669" width="265" height="20.666666666666686"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Phone: 512-992-7354" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H44-6r-x6l">
+                                <rect key="frame" x="67.666666666666686" y="505" width="240" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="265" id="pjH-K4-1hA"/>
+                                    <constraint firstAttribute="height" constant="25" id="5VQ-xA-wWN"/>
+                                    <constraint firstAttribute="width" constant="240" id="Tkl-tl-A5M"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="austinweirdautos@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elI-ts-ShI">
-                                <rect key="frame" x="55" y="526.33333333333337" width="265" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="austinweirdautos@gmail.com" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9oX-Kf-ETX">
+                                <rect key="frame" x="58.666666666666657" y="550" width="258" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="265" id="eny-kx-bw3"/>
+                                    <constraint firstAttribute="height" constant="22" id="PcS-xc-mGF"/>
+                                    <constraint firstAttribute="width" constant="258" id="TUc-zN-5pQ"/>
                                 </constraints>
+                                <color key="textColor" red="0.1987479925" green="0.15295839310000001" blue="0.74723380800000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.017669303340000001" green="0.087260641159999999" blue="0.64747643470000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9OI-As-rpS" firstAttribute="top" secondItem="Twf-20-Asw" secondAttribute="top" id="AXw-SA-veq"/>
+                            <constraint firstItem="9oX-Kf-ETX" firstAttribute="top" secondItem="H44-6r-x6l" secondAttribute="bottom" constant="20" id="AZy-A8-F2w"/>
                             <constraint firstItem="zML-mu-rOl" firstAttribute="centerX" secondItem="C8S-cv-EOq" secondAttribute="centerX" id="E33-Sw-FmC"/>
-                            <constraint firstItem="elI-ts-ShI" firstAttribute="top" secondItem="NY1-eL-VnV" secondAttribute="bottom" constant="20" id="G1c-ES-lBB"/>
+                            <constraint firstItem="RP7-KQ-uUb" firstAttribute="top" secondItem="zML-mu-rOl" secondAttribute="bottom" constant="35" id="HY4-mN-lCY"/>
                             <constraint firstItem="9OI-As-rpS" firstAttribute="trailing" secondItem="C8S-cv-EOq" secondAttribute="trailing" id="dX9-jr-1SL"/>
-                            <constraint firstItem="NY1-eL-VnV" firstAttribute="centerX" secondItem="C8S-cv-EOq" secondAttribute="centerX" id="jco-ZD-drs"/>
+                            <constraint firstItem="H44-6r-x6l" firstAttribute="top" secondItem="RP7-KQ-uUb" secondAttribute="bottom" constant="20" id="hmQ-aB-jc8"/>
+                            <constraint firstItem="H44-6r-x6l" firstAttribute="centerX" secondItem="Twf-20-Asw" secondAttribute="centerX" id="ji4-mB-Osz"/>
                             <constraint firstItem="zML-mu-rOl" firstAttribute="top" secondItem="9OI-As-rpS" secondAttribute="bottom" constant="55" id="mHD-Ev-otV"/>
-                            <constraint firstItem="bxa-aJ-LvU" firstAttribute="centerX" secondItem="C8S-cv-EOq" secondAttribute="centerX" id="n9G-dk-ay7"/>
-                            <constraint firstItem="NY1-eL-VnV" firstAttribute="top" secondItem="bxa-aJ-LvU" secondAttribute="bottom" constant="20" id="veS-n1-mfE"/>
+                            <constraint firstItem="9oX-Kf-ETX" firstAttribute="centerX" secondItem="Twf-20-Asw" secondAttribute="centerX" id="q1e-ue-qrd"/>
+                            <constraint firstItem="RP7-KQ-uUb" firstAttribute="centerX" secondItem="Twf-20-Asw" secondAttribute="centerX" id="v88-zt-mv1"/>
                             <constraint firstItem="9OI-As-rpS" firstAttribute="leading" secondItem="C8S-cv-EOq" secondAttribute="leading" id="x3n-Zw-z62"/>
-                            <constraint firstItem="elI-ts-ShI" firstAttribute="centerX" secondItem="C8S-cv-EOq" secondAttribute="centerX" id="ybB-co-Ddx"/>
-                            <constraint firstItem="bxa-aJ-LvU" firstAttribute="top" secondItem="zML-mu-rOl" secondAttribute="bottom" constant="35" id="zqg-ec-veA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C8S-cv-EOq"/>
                     </view>
@@ -595,7 +598,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1861.5999999999999" y="1459.52023988006"/>
+            <point key="canvasLocation" x="1861.5999999999999" y="1459.3596059113302"/>
         </scene>
         <!--Owner Posts List View Controller-->
         <scene sceneID="fEk-mM-4ew">
